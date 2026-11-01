@@ -2,8 +2,10 @@ import { useEffect } from "react";
 import { useLocation, useParams } from "react-router";
 import type { Route } from "./+types/surah";
 import { AyahItem } from "~/components/AyahItem";
+import { RecitationPlayer } from "~/components/RecitationPlayer";
 import { SurahHeader } from "~/components/SurahHeader";
 import { SurahNav } from "~/components/SurahNav";
+import { useRecitation } from "~/lib/audio";
 import { pageMeta } from "~/lib/head";
 import { isLang, t } from "~/lib/i18n";
 import { readSurah } from "~/lib/quran.server";
@@ -41,6 +43,7 @@ export default function SurahPage({ loaderData }: Route.ComponentProps) {
   const surah = surahBySlug(slug);
   const l = isLang(lang) ? lang : "id";
   const { copy, share } = useShare(l);
+  const { current, playing, time, toggle, pause, go, seek, stop } = useRecitation(surah?.no, surah?.ayat ?? 0);
   // The page is first drawn with a fallback font; when the Quran font arrives every verse above the one in the address changes height,
   // and the browser's own jump to the #ayat-N lands in the wrong place. Jump again once the fonts are in, unless the reader has already scrolled.
   useEffect(() => {
@@ -63,7 +66,7 @@ export default function SurahPage({ loaderData }: Route.ComponentProps) {
   return (
     <>
       <SurahNav lang={lang} surah={surah} />
-      <main className="mx-auto max-w-5xl px-4">
+      <main className={`mx-auto max-w-5xl px-4 ${current ? "pb-24" : ""}`}>
         <SurahHeader lang={lang} surah={surah} bismillah={bismillah} />
         {verses.map((v) => (
           <AyahItem
@@ -71,11 +74,28 @@ export default function SurahPage({ loaderData }: Route.ComponentProps) {
             lang={lang}
             {...v}
             imageHref={ayatPath(lang, surah, v.n)}
+            playing={playing === v.n}
+            onPlay={() => toggle(v.n)}
             onCopy={() => copy(`${v.arabic}\n${v.text}\n— ${surah.name}: ${v.n}`, s.copied)}
             onShare={() => share(surahPath(lang, surah, v.n), `${surah.name}: ${v.n}`)}
           />
         ))}
       </main>
+      {current && (
+        <RecitationPlayer
+          lang={lang}
+          n={current}
+          ayat={surah.ayat}
+          paused={playing === null}
+          at={time.at}
+          length={time.length}
+          onPrev={() => go(current - 1)}
+          onNext={() => go(current + 1)}
+          onPause={pause}
+          onSeek={seek}
+          onClose={stop}
+        />
+      )}
     </>
   );
 }

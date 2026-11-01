@@ -42,3 +42,4 @@ export const Indonesian: Story = {};
 export const WithImageLink: Story = { args: { imageHref: "/id/al-alaq/1" } };
 export const English: Story = { args: { lang: "en", ...verse(96, 1, latinMd), text: line(englishMd, "96:1") } };
 export const LongVerse: Story = { args: { ...verse(2, 255), text: line(indonesiaMd, "2:255") } };
+export const Playing: Story = { args: { playing: true } };
