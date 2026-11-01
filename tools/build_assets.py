@@ -8,7 +8,7 @@ Writes: logo.png (trimmed, 512 px tall, transparent; the header uses logo.svg, s
         icon-192.png, icon-512.png (white logo on the brand colour, with room around it for round/maskable icons: Android builds the
         splash screen of the installed app from this icon and the manifest's background colour, so it is all teal with a white logo),
         splash/<w>x<h>.png (the same for iPhones, which need their own splash images) and app/lib/splash.json (their sizes, for the page head),
-        og.jpg (1200 x 630: the default link-preview picture, just the logo), site.webmanifest
+        og.jpg (1200 x 630: the default link-preview picture, a white logo on the brand colour), site.webmanifest
 """
 import json
 import sys
@@ -108,12 +108,8 @@ def main():
         index.append({"width": w, "height": h, "ratio": dpr, "file": f"splash/{name}"})
     (ROOT / "app" / "lib" / "splash.json").write_text(json.dumps(index, indent=1) + "\n", encoding="utf-8")
 
-    # the default link-preview picture: just the logo, large and centred, under the brand stripe
-    card = Image.new("RGB", (1200, 630), PAPER)
-    mark = fitted(logo, 1000, 420)
-    card.paste(mark, ((1200 - mark.width) // 2, 14 + (630 - 14 - mark.height) // 2), mark)
-    ImageDraw.Draw(card).rectangle([0, 0, 1200, 14], fill=BRAND)
-    card.save(OUT / "og.jpg", quality=90, optimize=True)
+    # the default link-preview picture: all brand colour with a large white logo in the middle, like the splash screen
+    on_brand(logo, 1200, 630, 0.62).save(OUT / "og.jpg", quality=92, optimize=True)
 
     (OUT / "site.webmanifest").write_text(
         json.dumps(

@@ -14,7 +14,14 @@ type MetaInput = {
 };
 
 // Shown in link previews of every page that has no picture of its own (a verse has its own): the logo card, public/assets/og.jpg
-const DEFAULT_IMAGE: ShareImage = { url: `${site.url}/assets/og.jpg`, width: 1200, height: 630, alt: "quran.situs.id" };
+// (the build id is on its address like on the verse pictures: the address never changes, and Facebook and Cloudflare keep what they fetched)
+const BUILD = import.meta.env.VITE_BUILD_ID;
+const DEFAULT_IMAGE: ShareImage = {
+  url: `${site.url}/assets/og.jpg${BUILD ? `?v=${BUILD}` : ""}`,
+  width: 1200,
+  height: 630,
+  alt: "quran.situs.id",
+};
 
 /**
  * Tab title, description and link-preview tags (Open Graph, Twitter) of a page, plus its canonical address and the same page
