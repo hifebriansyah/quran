@@ -11,13 +11,14 @@ const scrollTo = (n: number) => document.getElementById(`ayat-${n}`)?.scrollInto
 
 /**
  * One player for the page: playing a verse stops the one before it. `current` is the verse that is loaded (playing or paused), null when
- * nothing is. When a verse ends the next one starts and is scrolled to the middle of the screen, until the last verse of the surah.
+ * nothing is. `loading` is true from the click until the sound starts. When a verse ends the next one starts and is scrolled to the middle of the screen, until the last verse of the surah.
  */
 export function useRecitation(surah: number | undefined, ayat: number) {
   const audio = useRef<HTMLAudioElement | null>(null);
   const next = useRef<(n: number, scroll?: boolean) => void>(() => {});
   const [current, setCurrent] = useState<number | null>(null);
   const [paused, setPaused] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [time, setTime] = useState({ at: 0, length: 0 });
 
   const stop = useCallback(() => {
@@ -25,6 +26,7 @@ export function useRecitation(surah: number | undefined, ayat: number) {
     audio.current = null;
     setCurrent(null);
     setPaused(false);
+    setLoading(false);
     setTime({ at: 0, length: 0 });
   }, []);
 
@@ -36,11 +38,13 @@ export function useRecitation(surah: number | undefined, ayat: number) {
       audio.current = el;
       setCurrent(n);
       setPaused(false);
+      setLoading(true);
       setTime({ at: 0, length: 0 });
       const mine = () => audio.current === el;
       el.ontimeupdate = el.onloadedmetadata = () => mine() && setTime({ at: el.currentTime, length: el.duration || 0 });
       el.onpause = () => mine() && !el.ended && setPaused(true);
       el.onplay = () => mine() && setPaused(false);
+      el.onplaying = () => mine() && setLoading(false);
       el.onended = () => {
         if (!mine()) return;
         if (n < ayat) next.current(n + 1, true);
@@ -79,5 +83,5 @@ export function useRecitation(surah: number | undefined, ayat: number) {
   // leaving the surah (or the page) stops the sound
   useEffect(() => stop, [surah, stop]);
 
-  return { current, playing: paused ? null : current, time, toggle, pause, go, seek, stop };
+  return { current, loading, playing: paused ? null : current, time, toggle, pause, go, seek, stop };
 }

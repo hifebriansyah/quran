@@ -43,7 +43,7 @@ export default function SurahPage({ loaderData }: Route.ComponentProps) {
   const surah = surahBySlug(slug);
   const l = isLang(lang) ? lang : "id";
   const { copy, share } = useShare(l);
-  const { current, playing, time, toggle, pause, go, seek, stop } = useRecitation(surah?.no, surah?.ayat ?? 0);
+  const { current, loading, playing, time, toggle, pause, go, seek, stop } = useRecitation(surah?.no, surah?.ayat ?? 0);
   // The page is first drawn with a fallback font; when the Quran font arrives every verse above the one in the address changes height,
   // and the browser's own jump to the #ayat-N lands in the wrong place. Jump again once the fonts are in, unless the reader has already scrolled.
   useEffect(() => {
@@ -66,7 +66,7 @@ export default function SurahPage({ loaderData }: Route.ComponentProps) {
   return (
     <>
       <SurahNav lang={lang} surah={surah} />
-      <main className={`mx-auto max-w-5xl px-4 ${current ? "pb-24" : ""}`}>
+      <main className={`mx-auto max-w-5xl overflow-x-clip px-4 ${current ? "pb-24" : ""}`}>
         <SurahHeader lang={lang} surah={surah} bismillah={bismillah} />
         {verses.map((v) => (
           <AyahItem
@@ -75,6 +75,7 @@ export default function SurahPage({ loaderData }: Route.ComponentProps) {
             {...v}
             imageHref={ayatPath(lang, surah, v.n)}
             playing={playing === v.n}
+            loading={loading && current === v.n}
             onPlay={() => toggle(v.n)}
             onCopy={() => copy(`${v.arabic}\n${v.text}\n— ${surah.name}: ${v.n}`, s.copied)}
             onShare={() => share(ayatPath(lang, surah, v.n), `${surah.name}: ${v.n}`)}
@@ -87,6 +88,7 @@ export default function SurahPage({ loaderData }: Route.ComponentProps) {
           n={current}
           ayat={surah.ayat}
           paused={playing === null}
+          loading={loading}
           at={time.at}
           length={time.length}
           onPrev={() => go(current - 1)}

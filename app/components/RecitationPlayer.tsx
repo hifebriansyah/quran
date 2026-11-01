@@ -8,6 +8,8 @@ export type RecitationPlayerProps = {
   /** how many verses the surah has */
   ayat: number;
   paused: boolean;
+  /** the verse is being loaded: a spinner takes the place of the pause button */
+  loading?: boolean;
   /** seconds played and the length of this verse (0 until known) */
   at: number;
   length: number;
@@ -27,6 +29,7 @@ export function RecitationPlayer({
   n,
   ayat,
   paused,
+  loading,
   at,
   length,
   onPrev,
@@ -48,7 +51,7 @@ export function RecitationPlayer({
           onClick={onPause}
           className={`${button} text-accent-text`}
         >
-          <Icon name={paused ? "play" : "pause"} />
+          <Icon name={loading ? "loader" : paused ? "play" : "pause"} className={loading ? "animate-spin" : ""} />
         </button>
         <button aria-label={s.nextVerse} title={s.nextVerse} onClick={onNext} disabled={n >= ayat} className={button}>
           <Icon name="chevronRight" />

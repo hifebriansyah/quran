@@ -13,6 +13,8 @@ export type AyahItemProps = {
   imageHref?: string;
   /** this verse's recitation is playing */
   playing?: boolean;
+  /** the recitation is being loaded: a spinner takes the place of the pause button */
+  loading?: boolean;
   onPlay?: () => void;
   onCopy?: () => void;
   onShare?: () => void;
@@ -21,10 +23,11 @@ export type AyahItemProps = {
 // U+06DD is the "end of ayah" sign; the Quran font draws the Arabic-Indic digits that follow it inside the circle.
 const END_OF_AYAH = "۝";
 
-export function AyahItem({ lang, n, arabic, latin, text, imageHref, playing, onPlay, onCopy, onShare }: AyahItemProps) {
+// The article runs the full width of the screen (so the highlight goes corner to corner); the padding puts the text back where it was.
+export function AyahItem({ lang, n, arabic, latin, text, imageHref, playing, loading, onPlay, onCopy, onShare }: AyahItemProps) {
   const s = t(lang);
   return (
-    <article id={`ayat-${n}`} className={`scroll-mt-32 border-b border-line py-6 transition-colors ${playing ? "bg-accent/10" : "target:bg-accent/10"}`}>
+    <article id={`ayat-${n}`} className={`mx-[calc(50%-50vw)] scroll-mt-32 border-b border-line px-[calc(50vw-50%)] py-6 transition-colors ${playing ? "bg-accent/10" : "target:bg-accent/10"}`}>
       <div className="mb-3 flex items-center gap-1 text-muted">
         <span className="mr-auto text-xs font-semibold">{s.verse(n)}</span>
         <button
@@ -34,7 +37,7 @@ export function AyahItem({ lang, n, arabic, latin, text, imageHref, playing, onP
           onClick={onPlay}
           className={`grid size-8 place-items-center rounded-full hover:bg-line/60 ${playing ? "text-accent-text" : ""}`}
         >
-          <Icon name={playing ? "pause" : "play"} />
+          <Icon name={loading ? "loader" : playing ? "pause" : "play"} className={loading ? "animate-spin" : ""} />
         </button>
         <button
           aria-label={s.copy}
