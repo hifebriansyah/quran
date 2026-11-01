@@ -31,4 +31,7 @@ writeFileSync(
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`,
 );
 writeFileSync(new URL("robots.txt", OUT), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+// which build this is (the same id as the ?v= on the pictures), for checking what is live: <site>/build.json
+const id = process.env.BUILD_ID?.slice(0, 12) ?? "";
+writeFileSync(new URL("build.json", OUT), JSON.stringify({ id, builtAt: new Date().toISOString() }) + "\n");
 console.log(`postbuild: 404.html, sitemap.xml (${paths.length} addresses), robots.txt`);

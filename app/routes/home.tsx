@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate, useOutletContext, useParams } from "react-router";
+import { Banner } from "~/components/Banner";
 import { Icon } from "~/components/Icon";
-import { SearchBox } from "~/components/SearchBox";
 import { SurahBrowser, type BrowseTab } from "~/components/SurahBrowser";
 import { Tabs } from "~/components/Tabs";
 import { pageMeta } from "~/lib/head";
 import { isLang, t } from "~/lib/i18n";
 import { parseRef, surahPath } from "~/lib/surahs";
+import type { AppContext } from "./_app";
 import NotFound from "./not-found";
 
 export const meta = ({ params }: { params: Record<string, string | undefined> }) => {
@@ -18,7 +19,7 @@ export const meta = ({ params }: { params: Record<string, string | undefined> })
 export default function Home() {
   const { lang } = useParams();
   const navigate = useNavigate();
-  const [query, setQuery] = useState("");
+  const { query } = useOutletContext<AppContext>();
   const [tab, setTab] = useState<BrowseTab>("surah");
   const [descending, setDescending] = useState(false);
   if (!isLang(lang)) return <NotFound />;
@@ -27,21 +28,14 @@ export default function Home() {
 
   return (
     <main>
-      <section className="bg-gradient-to-br from-banner-from to-banner-to text-white">
-        <div className="mx-auto max-w-5xl px-4 pt-8 pb-10">
-          <h1 className="text-3xl font-bold tracking-tight">{s.heading}</h1>
-          <div className="mt-5 max-w-lg">
-            <SearchBox
-              value={query}
-              onChange={setQuery}
-              onSubmit={() => ref && navigate(surahPath(lang, ref.surah, ref.ayat))}
-              placeholder={s.search}
-              label={s.searchLabel}
-            />
-            <p className="mt-2 text-xs text-white/70">{s.hint}</p>
-          </div>
-        </div>
-      </section>
+      <Banner className="pt-28 pb-10">
+        <h1 className="text-3xl font-bold tracking-tight">{s.heading}</h1>
+        <p className="mt-2 text-sm leading-relaxed text-banner-ink/80">
+          {s.bannerCredit[0]}
+          <br />
+          {s.bannerCredit[1]}
+        </p>
+      </Banner>
       <section className="mx-auto max-w-5xl px-4 py-6">
         <div className="mb-5 flex items-center justify-between gap-3">
           <Tabs

@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "react-router dev",
-    "build": "rm -rf build && react-router build && node scripts/postbuild.ts",
+    "build": "rm -rf build && export BUILD_ID=${BUILD_ID:-$(date +%s)} && react-router build && node scripts/postbuild.ts",
     "build:local": "BASE_PATH=/for-fun/quran/ npm run build && npm run build-storybook",
     "preview": "vite preview --outDir build/client",
     "typecheck": "react-router typegen && tsc",
@@ -37,6 +37,7 @@
     "eslint-plugin-storybook": "10.6.5",
     "globals": "16.5.0",
     "prettier": "3.9.10",
+    "puppeteer-core": "25.16.0",
     "storybook": "10.6.5",
     "tailwindcss": "4.3.3",
     "typescript": "5.9.3",

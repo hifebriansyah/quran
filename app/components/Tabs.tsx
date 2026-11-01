@@ -13,7 +13,7 @@ export function Tabs<T extends string>({ tabs, value, onChange }: TabsProps<T>) 
           role="tab"
           aria-selected={tab.id === value}
           onClick={() => onChange(tab.id)}
-          className={`rounded-full px-4 py-1.5 transition ${tab.id === value ? "bg-card text-ink shadow-sm" : "text-muted hover:text-ink"}`}
+          className={`rounded-full px-4 py-1.5 transition ${tab.id === value ? "bg-accent text-accent-ink" : "text-muted hover:text-ink"}`}
         >
           {tab.label}
         </button>

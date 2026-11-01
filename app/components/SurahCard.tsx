@@ -20,7 +20,7 @@ export function SurahCard({ surah, lang }: SurahCardProps) {
           {surah.meaning[lang]} · {s.verses(surah.ayat)}
         </span>
       </span>
-      <span lang="ar" dir="rtl" className="font-arab text-2xl leading-none text-accent">
+      <span lang="ar" dir="rtl" className="font-arab text-2xl leading-none text-accent-text">
         {surah.arabic}
       </span>
     </Link>

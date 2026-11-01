@@ -19,6 +19,8 @@ const config: StorybookConfig = {
   addons: ["@storybook/addon-a11y"],
   framework: { name: "@storybook/react-vite", options: {} },
   core: { disableTelemetry: true },
+  // Storybook has no public folder (publicDir is off in viteFinal); the header stories need the logo
+  staticDirs: [{ from: "../public/assets/logo.svg", to: "/assets/logo.svg" }],
   viteFinal: (base) =>
     mergeConfig(withoutReactRouter(base), {
       base: "./",

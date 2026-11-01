@@ -6,17 +6,15 @@ import { Icon } from "./Icon";
 export const THEME_KEY = "quran-theme";
 export const THEME_SCRIPT = `try{var t=localStorage.getItem("${THEME_KEY}");if(t)document.documentElement.dataset.theme=t}catch(e){}`;
 
-const isDark = () => {
-  const set = document.documentElement.dataset.theme;
-  return set ? set === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
-};
+// Light unless the reader chose dark: the device setting is not used.
+const isDark = () => document.documentElement.dataset.theme === "dark";
 
 export function ThemeToggle({ label }: { label: string }) {
   const [dark, setDark] = useState(false);
   useEffect(() => setDark(isDark()), []);
   return (
     <button
-      className="grid size-9 place-items-center rounded-full text-white/85 hover:bg-white/15"
+      className="grid size-9 place-items-center rounded-full text-ink hover:bg-ink/10"
       aria-label={label}
       onClick={() => {
         const next = isDark() ? "light" : "dark";

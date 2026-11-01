@@ -32,6 +32,9 @@ jobs:
       - name: Install
         run: npm ci
       - name: Typecheck, lint and build
+        env:
+          # the build id: the commit, so a re-run of the same commit gives the same pictures addresses
+          BUILD_ID: ${{ github.sha }}
         run: |
           npm run typecheck
           npm run lint

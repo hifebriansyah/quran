@@ -20,20 +20,23 @@ function Select({ children, ...props }: React.ComponentProps<"select">) {
   );
 }
 
-/** Under the app bar on a surah page: the list, previous and next surah, a surah picker and a verse picker. */
+/**
+ * Under the app bar on a surah page: the list at the left, and at the right edge the group of previous surah, surah picker, verse picker
+ * and next surah.
+ */
 export function SurahNav({ lang, surah }: SurahNavProps) {
   const s = t(lang);
   const navigate = useNavigate();
   const prev = surahByNo(surah.no - 1);
   const next = surahByNo(surah.no + 1);
   return (
-    <div className="sticky top-[3.4rem] z-20 border-b border-line bg-bg/95 backdrop-blur">
-      <div className="mx-auto flex max-w-3xl items-center gap-2 px-4 py-2">
+    <div className="sticky top-[3.5rem] z-20 border-b border-line bg-bg/95 backdrop-blur">
+      <div className="mx-auto flex max-w-5xl items-center gap-2 px-4 py-2">
         <Link to={`/${lang}`} className={`${arrow} text-muted`}>
           <Icon name="grid" />
           <span className="hidden sm:inline">{s.allSurahs}</span>
         </Link>
-        <span className="mx-auto flex min-w-0 items-center gap-1">
+        <span className="ml-auto flex min-w-0 items-center gap-1">
           {prev ? (
             <Link to={surahPath(lang, prev)} aria-label={s.prev} className={`${arrow} text-muted`}>
               <Icon name="chevronLeft" />
@@ -53,7 +56,7 @@ export function SurahNav({ lang, surah }: SurahNavProps) {
             aria-label={s.pickVerse}
             value=""
             onChange={(e) => {
-              if (e.target.value) location.hash = `ayat-${e.target.value}`;
+              if (e.target.value) navigate({ hash: `#ayat-${e.target.value}` });
             }}
           >
             <option value="">{s.pickVerse}</option>

@@ -8,6 +8,8 @@ export default [
     // :lang is "id" or "en"; any other value shows "not found"
     route(":lang", "routes/home.tsx"),
     route(":lang/:slug", "routes/surah.tsx"),
+    // the picture of one verse: /id/al-alaq/1
+    route(":lang/:slug/:n", "routes/ayat.tsx"),
     route("*", "routes/not-found.tsx"),
   ]),
 ] satisfies RouteConfig;

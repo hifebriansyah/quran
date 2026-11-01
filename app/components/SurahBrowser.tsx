@@ -14,7 +14,7 @@ export type SurahBrowserProps = {
 };
 
 const Grid = ({ children }: { children: React.ReactNode }) => (
-  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{children}</div>
+  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">{children}</div>
 );
 
 /** The surah cards for a tab: all in order, grouped by the juz they start in, or in the order they were revealed. */

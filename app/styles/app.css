@@ -9,48 +9,46 @@
   --color-line: var(--line);
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
+  --color-accent-text: var(--accent-text);
   --color-banner-from: var(--banner-from);
   --color-banner-to: var(--banner-to);
+  --color-banner-ink: var(--banner-ink);
+  --color-banner-accent: var(--banner-accent);
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-arab: "Amiri Quran", "Scheherazade New", "Noto Naskh Arabic", serif;
 }
 
 :root {
-  --bg: #f6f3ea;
-  --card: #fffdf7;
-  --ink: #1d2433;
-  --muted: #667085;
-  --line: #e4dfd0;
-  --accent: #a9761c;
-  --accent-ink: #ffffff;
-  --banner-from: #1b2a4a;
-  --banner-to: #2d4373;
+  /* brand teal #30c2b1, paper #F4F2EB and text #404040; the rest is derived from them */
+  --bg: #f4f2eb;
+  --card: #fbfaf6;
+  --ink: #404040;
+  --muted: #6a6a66;
+  --line: #e2dfd3;
+  --accent: #30c2b1; /* fills, borders, focus */
+  --accent-text: #0f7a6e; /* teal used as text on paper: the brand teal is too pale to read there */
+  --accent-ink: #1b2926; /* text on a teal fill */
+  --banner-from: #44cfbf;
+  --banner-to: #30c2b1;
+  --banner-ink: #1b2926; /* text on the banner and the app bar */
+  --banner-accent: #0f5f55;
   color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0f1420;
-    --card: #171d2c;
-    --ink: #e8e6df;
-    --muted: #9aa3b5;
-    --line: #263049;
-    --accent: #e0b45a;
-    --accent-ink: #1a1405;
-    --banner-from: #0b1020;
-    --banner-to: #16223f;
-    color-scheme: dark;
-  }
-}
+/* Light is the default, whatever the device prefers; dark only when the reader switches to it (the choice is kept, see ThemeToggle). */
 :root[data-theme="dark"] {
-  --bg: #0f1420;
-  --card: #171d2c;
-  --ink: #e8e6df;
-  --muted: #9aa3b5;
-  --line: #263049;
-  --accent: #e0b45a;
-  --accent-ink: #1a1405;
-  --banner-from: #0b1020;
-  --banner-to: #16223f;
+  /* the light palette turned down: the same warm paper tone and the same brand teal, only dark */
+  --bg: #1c1b18;
+  --card: #262521;
+  --ink: #ece9e1;
+  --muted: #a8a59b;
+  --line: #37352f;
+  --accent: #30c2b1;
+  --accent-text: #5fd9c9; /* a lighter teal for text on the dark paper */
+  --accent-ink: #10221f; /* text on a teal fill, as in the light theme */
+  --banner-from: #1d7f74;
+  --banner-to: #166a61;
+  --banner-ink: #ffffff;
+  --banner-accent: #9be8de;
   color-scheme: dark;
 }
 
@@ -68,6 +66,27 @@ svg.i {
   width: 1em;
   height: 1em;
   flex: none;
+}
+
+/* Banner pattern: overlapping circles on a triangular lattice (tools/make_pattern.py), drawn in the banner's text colour so it follows the theme. */
+.banner-pattern {
+  position: relative;
+  isolation: isolate;
+}
+.banner-pattern::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--banner-ink);
+  opacity: 0.13;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='48.497' viewBox='0 0 28 48.497'%3E%3Ccircle cx='-14.000' cy='-24.249' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='-14.000' cy='-24.249' r='1.5' fill='black'/%3E%3Ccircle cx='14.000' cy='-24.249' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='14.000' cy='-24.249' r='1.5' fill='black'/%3E%3Ccircle cx='42.000' cy='-24.249' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='42.000' cy='-24.249' r='1.5' fill='black'/%3E%3Ccircle cx='-28.000' cy='0.000' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='-28.000' cy='0.000' r='1.5' fill='black'/%3E%3Ccircle cx='0.000' cy='0.000' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='0.000' cy='0.000' r='1.5' fill='black'/%3E%3Ccircle cx='28.000' cy='0.000' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='28.000' cy='0.000' r='1.5' fill='black'/%3E%3Ccircle cx='56.000' cy='0.000' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='56.000' cy='0.000' r='1.5' fill='black'/%3E%3Ccircle cx='-14.000' cy='24.249' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='-14.000' cy='24.249' r='1.5' fill='black'/%3E%3Ccircle cx='14.000' cy='24.249' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='14.000' cy='24.249' r='1.5' fill='black'/%3E%3Ccircle cx='42.000' cy='24.249' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='42.000' cy='24.249' r='1.5' fill='black'/%3E%3Ccircle cx='-28.000' cy='48.497' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='-28.000' cy='48.497' r='1.5' fill='black'/%3E%3Ccircle cx='0.000' cy='48.497' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='0.000' cy='48.497' r='1.5' fill='black'/%3E%3Ccircle cx='28.000' cy='48.497' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='28.000' cy='48.497' r='1.5' fill='black'/%3E%3Ccircle cx='56.000' cy='48.497' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='56.000' cy='48.497' r='1.5' fill='black'/%3E%3Ccircle cx='-14.000' cy='72.746' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='-14.000' cy='72.746' r='1.5' fill='black'/%3E%3Ccircle cx='14.000' cy='72.746' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='14.000' cy='72.746' r='1.5' fill='black'/%3E%3Ccircle cx='42.000' cy='72.746' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='42.000' cy='72.746' r='1.5' fill='black'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='48.497' viewBox='0 0 28 48.497'%3E%3Ccircle cx='-14.000' cy='-24.249' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='-14.000' cy='-24.249' r='1.5' fill='black'/%3E%3Ccircle cx='14.000' cy='-24.249' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='14.000' cy='-24.249' r='1.5' fill='black'/%3E%3Ccircle cx='42.000' cy='-24.249' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='42.000' cy='-24.249' r='1.5' fill='black'/%3E%3Ccircle cx='-28.000' cy='0.000' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='-28.000' cy='0.000' r='1.5' fill='black'/%3E%3Ccircle cx='0.000' cy='0.000' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='0.000' cy='0.000' r='1.5' fill='black'/%3E%3Ccircle cx='28.000' cy='0.000' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='28.000' cy='0.000' r='1.5' fill='black'/%3E%3Ccircle cx='56.000' cy='0.000' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='56.000' cy='0.000' r='1.5' fill='black'/%3E%3Ccircle cx='-14.000' cy='24.249' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='-14.000' cy='24.249' r='1.5' fill='black'/%3E%3Ccircle cx='14.000' cy='24.249' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='14.000' cy='24.249' r='1.5' fill='black'/%3E%3Ccircle cx='42.000' cy='24.249' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='42.000' cy='24.249' r='1.5' fill='black'/%3E%3Ccircle cx='-28.000' cy='48.497' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='-28.000' cy='48.497' r='1.5' fill='black'/%3E%3Ccircle cx='0.000' cy='48.497' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='0.000' cy='48.497' r='1.5' fill='black'/%3E%3Ccircle cx='28.000' cy='48.497' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='28.000' cy='48.497' r='1.5' fill='black'/%3E%3Ccircle cx='56.000' cy='48.497' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='56.000' cy='48.497' r='1.5' fill='black'/%3E%3Ccircle cx='-14.000' cy='72.746' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='-14.000' cy='72.746' r='1.5' fill='black'/%3E%3Ccircle cx='14.000' cy='72.746' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='14.000' cy='72.746' r='1.5' fill='black'/%3E%3Ccircle cx='42.000' cy='72.746' r='28' fill='none' stroke='black' stroke-width='1.1'/%3E%3Ccircle cx='42.000' cy='72.746' r='1.5' fill='black'/%3E%3C/svg%3E");
+  mask-size: 28px 48.497px;
+  -webkit-mask-size: 28px 48.497px;
+  mask-position: center top;
+  -webkit-mask-position: center top;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

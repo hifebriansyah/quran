@@ -33,10 +33,23 @@ export type Verse = { n: number; arabic: string; latin: string; text: string };
 export type SurahText = { bismillah: string | null; verses: Verse[] };
 
 const TRANSLATION: Record<Lang, string> = { id: "indonesia.md", en: "english.md" };
+// the Latin line follows the page language too: Indonesian style (Kemenag) on /id/, Tanzil's English style on /en/
+const LATIN: Record<Lang, string> = { id: "latin-id.md", en: "latin.md" };
+
+const surahCache = new Map<string, SurahText>();
 
 export function readSurah(no: number, lang: Lang): SurahText {
+  const key = `${no}:${lang}`;
+  const cached = surahCache.get(key);
+  if (cached) return cached;
+  const result = readSurahUncached(no, lang);
+  surahCache.set(key, result);
+  return result;
+}
+
+function readSurahUncached(no: number, lang: Lang): SurahText {
   const arabic = load("arabic.md").get(no)!;
-  const latin = load("latin.md").get(no)!;
+  const latin = load(LATIN[lang]).get(no)!;
   const text = load(TRANSLATION[lang]).get(no)!;
   // Tanzil's Arabic file puts the bismillah in front of verse 1 of every surah except 1 (where it is verse 1) and 9 (which has none).
   // The page shows it once, above the verses, so the first four words are split off here. Its text is verse 1 of surah 1.

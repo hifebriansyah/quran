@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { arabicDigits } from "~/lib/surahs";
 import { t, type Lang } from "~/lib/i18n";
 import { Icon } from "./Icon";
@@ -8,6 +9,8 @@ export type AyahItemProps = {
   arabic: string;
   latin: string;
   text: string;
+  /** the page with this verse's picture */
+  imageHref?: string;
   onCopy?: () => void;
   onShare?: () => void;
 };
@@ -15,7 +18,7 @@ export type AyahItemProps = {
 // U+06DD is the "end of ayah" sign; the Quran font draws the Arabic-Indic digits that follow it inside the circle.
 const END_OF_AYAH = "۝";
 
-export function AyahItem({ lang, n, arabic, latin, text, onCopy, onShare }: AyahItemProps) {
+export function AyahItem({ lang, n, arabic, latin, text, imageHref, onCopy, onShare }: AyahItemProps) {
   const s = t(lang);
   return (
     <article id={`ayat-${n}`} className="scroll-mt-32 border-b border-line py-6 target:bg-accent/10">
@@ -29,6 +32,16 @@ export function AyahItem({ lang, n, arabic, latin, text, onCopy, onShare }: Ayah
         >
           <Icon name="copy" />
         </button>
+        {imageHref && (
+          <Link
+            to={imageHref}
+            aria-label={s.viewImage}
+            title={s.viewImage}
+            className="grid size-8 place-items-center rounded-full hover:bg-line/60"
+          >
+            <Icon name="image" />
+          </Link>
+        )}
         <button
           aria-label={s.share}
           title={s.share}
@@ -42,7 +55,7 @@ export function AyahItem({ lang, n, arabic, latin, text, onCopy, onShare }: Ayah
         {arabic} {END_OF_AYAH}
         {arabicDigits(n)}
       </p>
-      <p className="mt-3 text-sm text-accent italic">{latin}</p>
+      <p className="mt-3 text-sm text-accent-text italic">{latin}</p>
       <p className="mt-2 leading-relaxed">{text}</p>
     </article>
   );

@@ -10,7 +10,7 @@ export function SurahHeader({ lang, surah, bismillah }: SurahHeaderProps) {
       <p className="text-xs text-muted">
         {surah.type === "meccan" ? s.meccan : s.medinan} · {s.juz(surah.juz)} · {s.verses(surah.ayat)}
       </p>
-      <p lang="ar" dir="rtl" className="mt-4 font-arab text-5xl leading-tight text-accent">
+      <p lang="ar" dir="rtl" className="mt-4 font-arab text-5xl leading-tight text-accent-text">
         {surah.arabic}
       </p>
       <h1 className="mt-2 text-2xl font-bold">{surah.name}</h1>

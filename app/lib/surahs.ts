@@ -21,6 +21,21 @@ export const juzStarts = data.juz;
 export const surahBySlug = (slug: string | undefined) => surahs.find((s) => s.slug === slug);
 export const surahByNo = (no: number) => surahs.find((s) => s.no === no);
 
+/** The page of a verse's picture: /id/al-alaq/1 */
+export const ayatPath = (lang: Lang, s: Surah, n: number) => `/${lang}/${s.slug}/${n}`;
+
+/** The verse before or after this one, going on into the next surah (and back into the previous one). */
+export function neighbourVerse(s: Surah, n: number, step: -1 | 1): { surah: Surah; n: number } | null {
+  if (step === 1) {
+    if (n < s.ayat) return { surah: s, n: n + 1 };
+    const next = surahByNo(s.no + 1);
+    return next ? { surah: next, n: 1 } : null;
+  }
+  if (n > 1) return { surah: s, n: n - 1 };
+  const prev = surahByNo(s.no - 1);
+  return prev ? { surah: prev, n: prev.ayat } : null;
+}
+
 export const site = {
   name: "quran.situs.id",
   url: "https://quran.situs.id",

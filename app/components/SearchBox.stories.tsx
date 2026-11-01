@@ -9,7 +9,7 @@ export const OnBanner: StoryObj = {
   render: () => {
     const [value, setValue] = useState("");
     return (
-      <div className="max-w-lg bg-banner-from p-6">
+      <div className="max-w-lg bg-card p-6">
         <SearchBox value={value} onChange={setValue} placeholder="Nama/nomor surah, atau 2:124" label="Cari surah" />
       </div>
     );

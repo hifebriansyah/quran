@@ -7,8 +7,20 @@ export const LANGS = ["id", "en"] as const;
 const root = new URL("../", import.meta.url);
 
 export function publicPaths(): string[] {
-  const { surahs } = JSON.parse(readFileSync(new URL("data/surahs.json", root), "utf8")) as { surahs: { slug: string }[] };
-  return ["/", ...LANGS.flatMap((lang) => [`/${lang}`, ...surahs.map((s) => `/${lang}/${s.slug}`)])];
+  const { surahs } = JSON.parse(readFileSync(new URL("data/surahs.json", root), "utf8")) as {
+    surahs: { slug: string; ayat: number }[];
+  };
+  // /id, /id/<surah>, and the picture page of every verse: /id/<surah>/<verse>
+  return [
+    "/",
+    ...LANGS.flatMap((lang) => [
+      `/${lang}`,
+      ...surahs.flatMap((s) => [
+        `/${lang}/${s.slug}`,
+        ...Array.from({ length: s.ayat }, (_, i) => `/${lang}/${s.slug}/${i + 1}`),
+      ]),
+    ]),
+  ];
 }
 
 /** Addresses for the sitemap: the "/" page only redirects, so it is left out. */

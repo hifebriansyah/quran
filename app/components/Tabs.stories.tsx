@@ -5,7 +5,7 @@ import { Tabs } from "./Tabs";
 const tabs = [
   { id: "surah", label: "Surah" },
   { id: "juz", label: "Juz" },
-  { id: "order", label: "Urutan Turun" },
+  { id: "order", label: "Tartib" },
 ];
 
 const meta = { title: "Components/Tabs", component: Tabs } satisfies Meta<typeof Tabs>;
