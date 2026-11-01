@@ -17,7 +17,7 @@ npm run build:local  # for Apache: BASE_PATH=/for-fun/quran/, plus Storybook at 
 
 `data/arabic.md`, `data/indonesia.md`, `data/english.md`, `data/latin.md` (English-style transliteration, Tanzil) and `data/latin-id.md` (Indonesian-style
 transliteration, Kemenag RI via equran.id) have one line per verse: `<surah>:<verse> <text>`. `/id/` pages use `latin-id.md`, `/en/` pages use `latin.md`.
-`data/voice.md` has the recitation audio address of every verse (`<surah>:<verse> <url>`, 6,236 lines, Mishary Alafasy on Tanzil's server). Nothing on the site plays them yet.
+`data/voice.md` has the recitation audio address of every verse (`<surah>:<verse> <url>`, 6,236 lines, Mishary Alafasy on Tanzil's server). The site plays the m4a copies in the R2 bucket instead (`https://quran-img.situs.id/voices_tanzil_net/001001.m4a`, sent by `tools/upload_voice.py`).
 `data/surahs.json` has the 114 surahs (name, Arabic name, meaning in both languages, Meccan/Medinan, order of revelation, juz).
 `latin-id.md` is built by `tools/make_latin_id.py` from the equran.id API (it states no licence: check it before publishing).
 The others are built by `tools/make_data.py` from the files downloaded from [Tanzil.net](https://tanzil.net) (Uthmani text, `id.indonesian`,

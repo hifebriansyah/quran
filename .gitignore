@@ -5,4 +5,6 @@ storybook-static/
 .DS_Store
 __pycache__/
 images/
+voices_tanzil_net/
+data/voice/
 .env

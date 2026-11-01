@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { IMAGE_BASE } from "./images";
 
-// The recitation (Mishary Alafasy) is played straight from Tanzil: one mp3 per verse, named by surah and verse, both padded to 3 digits.
-const AUDIO_BASE = "https://tanzil.net/res/audio/afasy";
+// The recitation (Mishary Alafasy, from Tanzil) is played from our R2 bucket (sent by tools/upload_voice.py), the same address as the
+// pictures: one m4a per verse in voices_tanzil_net/, named by surah and verse, both padded to 3 digits.
+const AUDIO_BASE = `${IMAGE_BASE}/voices_tanzil_net`;
 const pad = (n: number) => String(n).padStart(3, "0");
-export const recitationUrl = (surah: number, ayat: number) => `${AUDIO_BASE}/${pad(surah)}${pad(ayat)}.mp3`;
+export const recitationUrl = (surah: number, ayat: number) => `${AUDIO_BASE}/${pad(surah)}${pad(ayat)}.m4a`;
 
 const scrollTo = (n: number) => document.getElementById(`ayat-${n}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
 
