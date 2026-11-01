@@ -1,0 +1,26 @@
+# Local Apache only (GitHub Pages ignores this file, and it is not copied into build/client/).
+# Serves the built site from build/client/ at http://localhost/for-fun/quran/ (build it with `npm run build:local`).
+# Needs mod_rewrite and `AllowOverride FileInfo` (or All) for this folder, like ../abimisme/.htaccess.
+<IfModule mod_headers.c>
+  Header set Cache-Control "no-cache"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /for-fun/quran/
+  # / -> the built redirect page
+  RewriteRule ^$ build/client/index.html [L]
+  # a file of the build: bundles in static/, assets/, storybook/, sitemap.xml, ...
+  RewriteCond %{DOCUMENT_ROOT}/for-fun/quran/build/client/$1 -f
+  RewriteRule ^(.+)$ build/client/$1 [L]
+  # /id/al-alaq -> /id/al-alaq/ (the pre-rendered pages are <path>/index.html)
+  RewriteCond %{DOCUMENT_ROOT}/for-fun/quran/build/client/$1/index.html -f
+  RewriteRule ^(.+[^/])$ %{REQUEST_URI}/ [R=301,L]
+  # /id/al-alaq/ -> build/client/id/al-alaq/index.html
+  RewriteCond %{DOCUMENT_ROOT}/for-fun/quran/build/client/$1index.html -f
+  RewriteRule ^(.+/)$ build/client/$1index.html [L]
+  # any other address under /id/ or /en/: the app opens and shows its own "not found", like 404.html on GitHub Pages
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(id|en)(/.*)?$ build/client/404.html [L]
+</IfModule>

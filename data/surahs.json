@@ -1,0 +1,1752 @@
+{
+ "surahs": [
+  {
+   "no": 1,
+   "slug": "al-fatihah",
+   "name": "Al-Fatihah",
+   "arabic": "الفاتحة",
+   "meaning": {
+    "id": "Pembuka",
+    "en": "The Opening"
+   },
+   "type": "meccan",
+   "ayat": 7,
+   "order": 5,
+   "juz": 1
+  },
+  {
+   "no": 2,
+   "slug": "al-baqarah",
+   "name": "Al-Baqarah",
+   "arabic": "البقرة",
+   "meaning": {
+    "id": "Sapi",
+    "en": "The Cow"
+   },
+   "type": "medinan",
+   "ayat": 286,
+   "order": 87,
+   "juz": 1
+  },
+  {
+   "no": 3,
+   "slug": "ali-imran",
+   "name": "Ali 'Imran",
+   "arabic": "آل عمران",
+   "meaning": {
+    "id": "Keluarga Imran",
+    "en": "The Family of Imraan"
+   },
+   "type": "medinan",
+   "ayat": 200,
+   "order": 89,
+   "juz": 3
+  },
+  {
+   "no": 4,
+   "slug": "an-nisa",
+   "name": "An-Nisa'",
+   "arabic": "النساء",
+   "meaning": {
+    "id": "Perempuan",
+    "en": "The Women"
+   },
+   "type": "medinan",
+   "ayat": 176,
+   "order": 92,
+   "juz": 4
+  },
+  {
+   "no": 5,
+   "slug": "al-maidah",
+   "name": "Al-Ma'idah",
+   "arabic": "المائدة",
+   "meaning": {
+    "id": "Hidangan",
+    "en": "The Table"
+   },
+   "type": "medinan",
+   "ayat": 120,
+   "order": 112,
+   "juz": 6
+  },
+  {
+   "no": 6,
+   "slug": "al-anam",
+   "name": "Al-An'am",
+   "arabic": "الأنعام",
+   "meaning": {
+    "id": "Binatang Ternak",
+    "en": "The Cattle"
+   },
+   "type": "meccan",
+   "ayat": 165,
+   "order": 55,
+   "juz": 7
+  },
+  {
+   "no": 7,
+   "slug": "al-araf",
+   "name": "Al-A'raf",
+   "arabic": "الأعراف",
+   "meaning": {
+    "id": "Tempat Tertinggi",
+    "en": "The Heights"
+   },
+   "type": "meccan",
+   "ayat": 206,
+   "order": 39,
+   "juz": 8
+  },
+  {
+   "no": 8,
+   "slug": "al-anfal",
+   "name": "Al-Anfal",
+   "arabic": "الأنفال",
+   "meaning": {
+    "id": "Rampasan Perang",
+    "en": "The Spoils of War"
+   },
+   "type": "medinan",
+   "ayat": 75,
+   "order": 88,
+   "juz": 9
+  },
+  {
+   "no": 9,
+   "slug": "at-taubah",
+   "name": "At-Taubah",
+   "arabic": "التوبة",
+   "meaning": {
+    "id": "Pengampunan",
+    "en": "The Repentance"
+   },
+   "type": "medinan",
+   "ayat": 129,
+   "order": 113,
+   "juz": 10
+  },
+  {
+   "no": 10,
+   "slug": "yunus",
+   "name": "Yunus",
+   "arabic": "يونس",
+   "meaning": {
+    "id": "Yunus",
+    "en": "Jonas"
+   },
+   "type": "meccan",
+   "ayat": 109,
+   "order": 51,
+   "juz": 11
+  },
+  {
+   "no": 11,
+   "slug": "hud",
+   "name": "Hud",
+   "arabic": "هود",
+   "meaning": {
+    "id": "Hud",
+    "en": "Hud"
+   },
+   "type": "meccan",
+   "ayat": 123,
+   "order": 52,
+   "juz": 11
+  },
+  {
+   "no": 12,
+   "slug": "yusuf",
+   "name": "Yusuf",
+   "arabic": "يوسف",
+   "meaning": {
+    "id": "Yusuf",
+    "en": "Joseph"
+   },
+   "type": "meccan",
+   "ayat": 111,
+   "order": 53,
+   "juz": 12
+  },
+  {
+   "no": 13,
+   "slug": "ar-rad",
+   "name": "Ar-Ra'd",
+   "arabic": "الرعد",
+   "meaning": {
+    "id": "Guruh",
+    "en": "The Thunder"
+   },
+   "type": "medinan",
+   "ayat": 43,
+   "order": 96,
+   "juz": 13
+  },
+  {
+   "no": 14,
+   "slug": "ibrahim",
+   "name": "Ibrahim",
+   "arabic": "ابراهيم",
+   "meaning": {
+    "id": "Ibrahim",
+    "en": "Abraham"
+   },
+   "type": "meccan",
+   "ayat": 52,
+   "order": 72,
+   "juz": 13
+  },
+  {
+   "no": 15,
+   "slug": "al-hijr",
+   "name": "Al-Hijr",
+   "arabic": "الحجر",
+   "meaning": {
+    "id": "Hijr",
+    "en": "The Rock"
+   },
+   "type": "meccan",
+   "ayat": 99,
+   "order": 54,
+   "juz": 14
+  },
+  {
+   "no": 16,
+   "slug": "an-nahl",
+   "name": "An-Nahl",
+   "arabic": "النحل",
+   "meaning": {
+    "id": "Lebah",
+    "en": "The Bee"
+   },
+   "type": "meccan",
+   "ayat": 128,
+   "order": 70,
+   "juz": 14
+  },
+  {
+   "no": 17,
+   "slug": "al-isra",
+   "name": "Al-Isra'",
+   "arabic": "الإسراء",
+   "meaning": {
+    "id": "Memperjalankan pada Malam Hari",
+    "en": "The Night Journey"
+   },
+   "type": "meccan",
+   "ayat": 111,
+   "order": 50,
+   "juz": 15
+  },
+  {
+   "no": 18,
+   "slug": "al-kahf",
+   "name": "Al-Kahf",
+   "arabic": "الكهف",
+   "meaning": {
+    "id": "Gua",
+    "en": "The Cave"
+   },
+   "type": "meccan",
+   "ayat": 110,
+   "order": 69,
+   "juz": 15
+  },
+  {
+   "no": 19,
+   "slug": "maryam",
+   "name": "Maryam",
+   "arabic": "مريم",
+   "meaning": {
+    "id": "Maryam",
+    "en": "Mary"
+   },
+   "type": "meccan",
+   "ayat": 98,
+   "order": 44,
+   "juz": 16
+  },
+  {
+   "no": 20,
+   "slug": "thaha",
+   "name": "Thaha",
+   "arabic": "طه",
+   "meaning": {
+    "id": "Taha",
+    "en": "Taa-Haa"
+   },
+   "type": "meccan",
+   "ayat": 135,
+   "order": 45,
+   "juz": 16
+  },
+  {
+   "no": 21,
+   "slug": "al-anbiya",
+   "name": "Al-Anbiya'",
+   "arabic": "الأنبياء",
+   "meaning": {
+    "id": "Para Nabi",
+    "en": "The Prophets"
+   },
+   "type": "meccan",
+   "ayat": 112,
+   "order": 73,
+   "juz": 17
+  },
+  {
+   "no": 22,
+   "slug": "al-hajj",
+   "name": "Al-Hajj",
+   "arabic": "الحج",
+   "meaning": {
+    "id": "Haji",
+    "en": "The Pilgrimage"
+   },
+   "type": "medinan",
+   "ayat": 78,
+   "order": 103,
+   "juz": 17
+  },
+  {
+   "no": 23,
+   "slug": "al-muminun",
+   "name": "Al-Mu'minun",
+   "arabic": "المؤمنون",
+   "meaning": {
+    "id": "Orang-Orang Mukmin",
+    "en": "The Believers"
+   },
+   "type": "meccan",
+   "ayat": 118,
+   "order": 74,
+   "juz": 18
+  },
+  {
+   "no": 24,
+   "slug": "an-nur",
+   "name": "An-Nur",
+   "arabic": "النور",
+   "meaning": {
+    "id": "Cahaya",
+    "en": "The Light"
+   },
+   "type": "medinan",
+   "ayat": 64,
+   "order": 102,
+   "juz": 18
+  },
+  {
+   "no": 25,
+   "slug": "al-furqan",
+   "name": "Al-Furqan",
+   "arabic": "الفرقان",
+   "meaning": {
+    "id": "Pembeda",
+    "en": "The Criterion"
+   },
+   "type": "meccan",
+   "ayat": 77,
+   "order": 42,
+   "juz": 18
+  },
+  {
+   "no": 26,
+   "slug": "asy-syuara",
+   "name": "Asy-Syu'ara'",
+   "arabic": "الشعراء",
+   "meaning": {
+    "id": "Para Penyair",
+    "en": "The Poets"
+   },
+   "type": "meccan",
+   "ayat": 227,
+   "order": 47,
+   "juz": 19
+  },
+  {
+   "no": 27,
+   "slug": "an-naml",
+   "name": "An-Naml",
+   "arabic": "النمل",
+   "meaning": {
+    "id": "Semut",
+    "en": "The Ant"
+   },
+   "type": "meccan",
+   "ayat": 93,
+   "order": 48,
+   "juz": 19
+  },
+  {
+   "no": 28,
+   "slug": "al-qashash",
+   "name": "Al-Qashash",
+   "arabic": "القصص",
+   "meaning": {
+    "id": "Kisah",
+    "en": "The Stories"
+   },
+   "type": "meccan",
+   "ayat": 88,
+   "order": 49,
+   "juz": 20
+  },
+  {
+   "no": 29,
+   "slug": "al-ankabut",
+   "name": "Al-'Ankabut",
+   "arabic": "العنكبوت",
+   "meaning": {
+    "id": "Laba-Laba",
+    "en": "The Spider"
+   },
+   "type": "meccan",
+   "ayat": 69,
+   "order": 85,
+   "juz": 20
+  },
+  {
+   "no": 30,
+   "slug": "ar-rum",
+   "name": "Ar-Rum",
+   "arabic": "الروم",
+   "meaning": {
+    "id": "Romawi",
+    "en": "The Romans"
+   },
+   "type": "meccan",
+   "ayat": 60,
+   "order": 84,
+   "juz": 21
+  },
+  {
+   "no": 31,
+   "slug": "luqman",
+   "name": "Luqman",
+   "arabic": "لقمان",
+   "meaning": {
+    "id": "Luqman",
+    "en": "Luqman"
+   },
+   "type": "meccan",
+   "ayat": 34,
+   "order": 57,
+   "juz": 21
+  },
+  {
+   "no": 32,
+   "slug": "as-sajdah",
+   "name": "As-Sajdah",
+   "arabic": "السجدة",
+   "meaning": {
+    "id": "Sajdah",
+    "en": "The Prostration"
+   },
+   "type": "meccan",
+   "ayat": 30,
+   "order": 75,
+   "juz": 21
+  },
+  {
+   "no": 33,
+   "slug": "al-ahzab",
+   "name": "Al-Ahzab",
+   "arabic": "الأحزاب",
+   "meaning": {
+    "id": "Golongan Yang Bersekutu",
+    "en": "The Clans"
+   },
+   "type": "medinan",
+   "ayat": 73,
+   "order": 90,
+   "juz": 21
+  },
+  {
+   "no": 34,
+   "slug": "saba",
+   "name": "Saba'",
+   "arabic": "سبإ",
+   "meaning": {
+    "id": "Saba'",
+    "en": "Sheba"
+   },
+   "type": "meccan",
+   "ayat": 54,
+   "order": 58,
+   "juz": 22
+  },
+  {
+   "no": 35,
+   "slug": "fathir",
+   "name": "Fathir",
+   "arabic": "فاطر",
+   "meaning": {
+    "id": "Pencipta",
+    "en": "The Originator"
+   },
+   "type": "meccan",
+   "ayat": 45,
+   "order": 43,
+   "juz": 22
+  },
+  {
+   "no": 36,
+   "slug": "yasin",
+   "name": "Yasin",
+   "arabic": "يس",
+   "meaning": {
+    "id": "Yasin",
+    "en": "Yaseen"
+   },
+   "type": "meccan",
+   "ayat": 83,
+   "order": 41,
+   "juz": 22
+  },
+  {
+   "no": 37,
+   "slug": "ash-shaffat",
+   "name": "Ash-Shaffat",
+   "arabic": "الصافات",
+   "meaning": {
+    "id": "Yang Berbaris-baris",
+    "en": "Those drawn up in Ranks"
+   },
+   "type": "meccan",
+   "ayat": 182,
+   "order": 56,
+   "juz": 23
+  },
+  {
+   "no": 38,
+   "slug": "shad",
+   "name": "Shad",
+   "arabic": "ص",
+   "meaning": {
+    "id": "Shad",
+    "en": "The letter Saad"
+   },
+   "type": "meccan",
+   "ayat": 88,
+   "order": 38,
+   "juz": 23
+  },
+  {
+   "no": 39,
+   "slug": "az-zumar",
+   "name": "Az-Zumar",
+   "arabic": "الزمر",
+   "meaning": {
+    "id": "Rombongan",
+    "en": "The Groups"
+   },
+   "type": "meccan",
+   "ayat": 75,
+   "order": 59,
+   "juz": 23
+  },
+  {
+   "no": 40,
+   "slug": "ghafir",
+   "name": "Ghafir",
+   "arabic": "غافر",
+   "meaning": {
+    "id": "Maha Pengampun",
+    "en": "The Forgiver"
+   },
+   "type": "meccan",
+   "ayat": 85,
+   "order": 60,
+   "juz": 24
+  },
+  {
+   "no": 41,
+   "slug": "fushshilat",
+   "name": "Fushshilat",
+   "arabic": "فصلت",
+   "meaning": {
+    "id": "Dijelaskan",
+    "en": "Explained in detail"
+   },
+   "type": "meccan",
+   "ayat": 54,
+   "order": 61,
+   "juz": 24
+  },
+  {
+   "no": 42,
+   "slug": "asy-syura",
+   "name": "Asy-Syura",
+   "arabic": "الشورى",
+   "meaning": {
+    "id": "Musyawarah",
+    "en": "Consultation"
+   },
+   "type": "meccan",
+   "ayat": 53,
+   "order": 62,
+   "juz": 25
+  },
+  {
+   "no": 43,
+   "slug": "az-zukhruf",
+   "name": "Az-Zukhruf",
+   "arabic": "الزخرف",
+   "meaning": {
+    "id": "Perhiasan dari Emas",
+    "en": "Ornaments of gold"
+   },
+   "type": "meccan",
+   "ayat": 89,
+   "order": 63,
+   "juz": 25
+  },
+  {
+   "no": 44,
+   "slug": "ad-dukhan",
+   "name": "Ad-Dukhan",
+   "arabic": "الدخان",
+   "meaning": {
+    "id": "Kabut Asap",
+    "en": "The Smoke"
+   },
+   "type": "meccan",
+   "ayat": 59,
+   "order": 64,
+   "juz": 25
+  },
+  {
+   "no": 45,
+   "slug": "al-jatsiyah",
+   "name": "Al-Jatsiyah",
+   "arabic": "الجاثية",
+   "meaning": {
+    "id": "Berlutut",
+    "en": "Crouching"
+   },
+   "type": "meccan",
+   "ayat": 37,
+   "order": 65,
+   "juz": 25
+  },
+  {
+   "no": 46,
+   "slug": "al-ahqaf",
+   "name": "Al-Ahqaf",
+   "arabic": "الأحقاف",
+   "meaning": {
+    "id": "Ahqaf",
+    "en": "The Dunes"
+   },
+   "type": "meccan",
+   "ayat": 35,
+   "order": 66,
+   "juz": 26
+  },
+  {
+   "no": 47,
+   "slug": "muhammad",
+   "name": "Muhammad",
+   "arabic": "محمد",
+   "meaning": {
+    "id": "Nabi Muhammad",
+    "en": "Muhammad"
+   },
+   "type": "medinan",
+   "ayat": 38,
+   "order": 95,
+   "juz": 26
+  },
+  {
+   "no": 48,
+   "slug": "al-fath",
+   "name": "Al-Fath",
+   "arabic": "الفتح",
+   "meaning": {
+    "id": "Kemenangan",
+    "en": "The Victory"
+   },
+   "type": "medinan",
+   "ayat": 29,
+   "order": 111,
+   "juz": 26
+  },
+  {
+   "no": 49,
+   "slug": "al-hujurat",
+   "name": "Al-Hujurat",
+   "arabic": "الحجرات",
+   "meaning": {
+    "id": "Kamar-Kamar",
+    "en": "The Inner Apartments"
+   },
+   "type": "medinan",
+   "ayat": 18,
+   "order": 106,
+   "juz": 26
+  },
+  {
+   "no": 50,
+   "slug": "qaf",
+   "name": "Qaf",
+   "arabic": "ق",
+   "meaning": {
+    "id": "Qaf",
+    "en": "The letter Qaaf"
+   },
+   "type": "meccan",
+   "ayat": 45,
+   "order": 34,
+   "juz": 26
+  },
+  {
+   "no": 51,
+   "slug": "adz-dzariyat",
+   "name": "Adz-Dzariyat",
+   "arabic": "الذاريات",
+   "meaning": {
+    "id": "Yang Menerbangkan",
+    "en": "The Winnowing Winds"
+   },
+   "type": "meccan",
+   "ayat": 60,
+   "order": 67,
+   "juz": 26
+  },
+  {
+   "no": 52,
+   "slug": "at-thur",
+   "name": "At-Thur",
+   "arabic": "الطور",
+   "meaning": {
+    "id": "Gunung",
+    "en": "The Mount"
+   },
+   "type": "meccan",
+   "ayat": 49,
+   "order": 76,
+   "juz": 27
+  },
+  {
+   "no": 53,
+   "slug": "an-najm",
+   "name": "An-Najm",
+   "arabic": "النجم",
+   "meaning": {
+    "id": "Bintang",
+    "en": "The Star"
+   },
+   "type": "meccan",
+   "ayat": 62,
+   "order": 23,
+   "juz": 27
+  },
+  {
+   "no": 54,
+   "slug": "al-qamar",
+   "name": "Al-Qamar",
+   "arabic": "القمر",
+   "meaning": {
+    "id": "Bulan",
+    "en": "The Moon"
+   },
+   "type": "meccan",
+   "ayat": 55,
+   "order": 37,
+   "juz": 27
+  },
+  {
+   "no": 55,
+   "slug": "ar-rahman",
+   "name": "Ar-Rahman",
+   "arabic": "الرحمن",
+   "meaning": {
+    "id": "Yang Maha Pengasih",
+    "en": "The Beneficent"
+   },
+   "type": "medinan",
+   "ayat": 78,
+   "order": 97,
+   "juz": 27
+  },
+  {
+   "no": 56,
+   "slug": "al-waqiah",
+   "name": "Al-Waqi'ah",
+   "arabic": "الواقعة",
+   "meaning": {
+    "id": "Hari Kiamat Yang Pasti Terjadi",
+    "en": "The Inevitable"
+   },
+   "type": "meccan",
+   "ayat": 96,
+   "order": 46,
+   "juz": 27
+  },
+  {
+   "no": 57,
+   "slug": "al-hadid",
+   "name": "Al-Hadid",
+   "arabic": "الحديد",
+   "meaning": {
+    "id": "Besi",
+    "en": "The Iron"
+   },
+   "type": "medinan",
+   "ayat": 29,
+   "order": 94,
+   "juz": 27
+  },
+  {
+   "no": 58,
+   "slug": "al-mujadilah",
+   "name": "Al-Mujadilah",
+   "arabic": "المجادلة",
+   "meaning": {
+    "id": "Gugatan",
+    "en": "The Pleading Woman"
+   },
+   "type": "medinan",
+   "ayat": 22,
+   "order": 105,
+   "juz": 28
+  },
+  {
+   "no": 59,
+   "slug": "al-hasyr",
+   "name": "Al-Hasyr",
+   "arabic": "الحشر",
+   "meaning": {
+    "id": "Pengusiran",
+    "en": "The Exile"
+   },
+   "type": "medinan",
+   "ayat": 24,
+   "order": 101,
+   "juz": 28
+  },
+  {
+   "no": 60,
+   "slug": "al-mumtahanah",
+   "name": "Al-Mumtahanah",
+   "arabic": "الممتحنة",
+   "meaning": {
+    "id": "Wanita Yang Diuji",
+    "en": "She that is to be examined"
+   },
+   "type": "medinan",
+   "ayat": 13,
+   "order": 91,
+   "juz": 28
+  },
+  {
+   "no": 61,
+   "slug": "ash-shaff",
+   "name": "Ash-Shaff",
+   "arabic": "الصف",
+   "meaning": {
+    "id": "Barisan",
+    "en": "The Ranks"
+   },
+   "type": "medinan",
+   "ayat": 14,
+   "order": 109,
+   "juz": 28
+  },
+  {
+   "no": 62,
+   "slug": "al-jumuah",
+   "name": "Al-Jumu'ah",
+   "arabic": "الجمعة",
+   "meaning": {
+    "id": "Jumat",
+    "en": "Friday"
+   },
+   "type": "medinan",
+   "ayat": 11,
+   "order": 110,
+   "juz": 28
+  },
+  {
+   "no": 63,
+   "slug": "al-munafiqun",
+   "name": "Al-Munafiqun",
+   "arabic": "المنافقون",
+   "meaning": {
+    "id": "Orang-Orang Munafik",
+    "en": "The Hypocrites"
+   },
+   "type": "medinan",
+   "ayat": 11,
+   "order": 104,
+   "juz": 28
+  },
+  {
+   "no": 64,
+   "slug": "at-taghabun",
+   "name": "At-Taghabun",
+   "arabic": "التغابن",
+   "meaning": {
+    "id": "Pengungkapan Kesalahan",
+    "en": "Mutual Disillusion"
+   },
+   "type": "medinan",
+   "ayat": 18,
+   "order": 108,
+   "juz": 28
+  },
+  {
+   "no": 65,
+   "slug": "at-thalaq",
+   "name": "At-Thalaq",
+   "arabic": "الطلاق",
+   "meaning": {
+    "id": "Talak",
+    "en": "Divorce"
+   },
+   "type": "medinan",
+   "ayat": 12,
+   "order": 99,
+   "juz": 28
+  },
+  {
+   "no": 66,
+   "slug": "at-tahrim",
+   "name": "At-Tahrim",
+   "arabic": "التحريم",
+   "meaning": {
+    "id": "Pengharaman",
+    "en": "The Prohibition"
+   },
+   "type": "medinan",
+   "ayat": 12,
+   "order": 107,
+   "juz": 28
+  },
+  {
+   "no": 67,
+   "slug": "al-mulk",
+   "name": "Al-Mulk",
+   "arabic": "الملك",
+   "meaning": {
+    "id": "Kerajaan",
+    "en": "The Sovereignty"
+   },
+   "type": "meccan",
+   "ayat": 30,
+   "order": 77,
+   "juz": 29
+  },
+  {
+   "no": 68,
+   "slug": "al-qalam",
+   "name": "Al-Qalam",
+   "arabic": "القلم",
+   "meaning": {
+    "id": "Pena",
+    "en": "The Pen"
+   },
+   "type": "meccan",
+   "ayat": 52,
+   "order": 2,
+   "juz": 29
+  },
+  {
+   "no": 69,
+   "slug": "al-haqqah",
+   "name": "Al-Haqqah",
+   "arabic": "الحاقة",
+   "meaning": {
+    "id": "Hari Kiamat Yang Pasti Datang",
+    "en": "The Reality"
+   },
+   "type": "meccan",
+   "ayat": 52,
+   "order": 78,
+   "juz": 29
+  },
+  {
+   "no": 70,
+   "slug": "al-maarij",
+   "name": "Al-Ma'arij",
+   "arabic": "المعارج",
+   "meaning": {
+    "id": "Tempat-Tempat Naik",
+    "en": "The Ascending Stairways"
+   },
+   "type": "meccan",
+   "ayat": 44,
+   "order": 79,
+   "juz": 29
+  },
+  {
+   "no": 71,
+   "slug": "nuh",
+   "name": "Nuh",
+   "arabic": "نوح",
+   "meaning": {
+    "id": "Nuh",
+    "en": "Noah"
+   },
+   "type": "meccan",
+   "ayat": 28,
+   "order": 71,
+   "juz": 29
+  },
+  {
+   "no": 72,
+   "slug": "al-jinn",
+   "name": "Al-Jinn",
+   "arabic": "الجن",
+   "meaning": {
+    "id": "Jin",
+    "en": "The Jinn"
+   },
+   "type": "meccan",
+   "ayat": 28,
+   "order": 40,
+   "juz": 29
+  },
+  {
+   "no": 73,
+   "slug": "al-muzzammil",
+   "name": "Al-Muzzammil",
+   "arabic": "المزمل",
+   "meaning": {
+    "id": "Orang Berkelumun",
+    "en": "The Enshrouded One"
+   },
+   "type": "meccan",
+   "ayat": 20,
+   "order": 3,
+   "juz": 29
+  },
+  {
+   "no": 74,
+   "slug": "al-muddatstsir",
+   "name": "Al-Muddatstsir",
+   "arabic": "المدثر",
+   "meaning": {
+    "id": "Orang Berselimut",
+    "en": "The Cloaked One"
+   },
+   "type": "meccan",
+   "ayat": 56,
+   "order": 4,
+   "juz": 29
+  },
+  {
+   "no": 75,
+   "slug": "al-qiyamah",
+   "name": "Al-Qiyamah",
+   "arabic": "القيامة",
+   "meaning": {
+    "id": "Hari Kiamat",
+    "en": "The Resurrection"
+   },
+   "type": "meccan",
+   "ayat": 40,
+   "order": 31,
+   "juz": 29
+  },
+  {
+   "no": 76,
+   "slug": "al-insan",
+   "name": "Al-Insan",
+   "arabic": "الانسان",
+   "meaning": {
+    "id": "Manusia",
+    "en": "Man"
+   },
+   "type": "medinan",
+   "ayat": 31,
+   "order": 98,
+   "juz": 29
+  },
+  {
+   "no": 77,
+   "slug": "al-mursalat",
+   "name": "Al-Mursalat",
+   "arabic": "المرسلات",
+   "meaning": {
+    "id": "Malaikat Yang Diutus",
+    "en": "The Emissaries"
+   },
+   "type": "meccan",
+   "ayat": 50,
+   "order": 33,
+   "juz": 29
+  },
+  {
+   "no": 78,
+   "slug": "an-naba",
+   "name": "An-Naba'",
+   "arabic": "النبإ",
+   "meaning": {
+    "id": "Berita",
+    "en": "The Announcement"
+   },
+   "type": "meccan",
+   "ayat": 40,
+   "order": 80,
+   "juz": 30
+  },
+  {
+   "no": 79,
+   "slug": "an-naziat",
+   "name": "An-Nazi'at",
+   "arabic": "النازعات",
+   "meaning": {
+    "id": "Yang Mencabut Dengan Keras",
+    "en": "Those who drag forth"
+   },
+   "type": "meccan",
+   "ayat": 46,
+   "order": 81,
+   "juz": 30
+  },
+  {
+   "no": 80,
+   "slug": "abasa",
+   "name": "'Abasa",
+   "arabic": "عبس",
+   "meaning": {
+    "id": "Berwajah Masam",
+    "en": "He frowned"
+   },
+   "type": "meccan",
+   "ayat": 42,
+   "order": 24,
+   "juz": 30
+  },
+  {
+   "no": 81,
+   "slug": "at-takwir",
+   "name": "At-Takwir",
+   "arabic": "التكوير",
+   "meaning": {
+    "id": "Penggulungan",
+    "en": "The Overthrowing"
+   },
+   "type": "meccan",
+   "ayat": 29,
+   "order": 7,
+   "juz": 30
+  },
+  {
+   "no": 82,
+   "slug": "al-infithar",
+   "name": "Al-Infithar",
+   "arabic": "الإنفطار",
+   "meaning": {
+    "id": "Terbelah",
+    "en": "The Cleaving"
+   },
+   "type": "meccan",
+   "ayat": 19,
+   "order": 82,
+   "juz": 30
+  },
+  {
+   "no": 83,
+   "slug": "al-muthaffifin",
+   "name": "Al-Muthaffifin",
+   "arabic": "المطففين",
+   "meaning": {
+    "id": "Orang-Orang Yang Curang",
+    "en": "Defrauding"
+   },
+   "type": "meccan",
+   "ayat": 36,
+   "order": 86,
+   "juz": 30
+  },
+  {
+   "no": 84,
+   "slug": "al-insyiqaq",
+   "name": "Al-Insyiqaq",
+   "arabic": "الإنشقاق",
+   "meaning": {
+    "id": "Terbelah",
+    "en": "The Splitting Open"
+   },
+   "type": "meccan",
+   "ayat": 25,
+   "order": 83,
+   "juz": 30
+  },
+  {
+   "no": 85,
+   "slug": "al-buruj",
+   "name": "Al-Buruj",
+   "arabic": "البروج",
+   "meaning": {
+    "id": "Gugusan Bintang",
+    "en": "The Constellations"
+   },
+   "type": "meccan",
+   "ayat": 22,
+   "order": 27,
+   "juz": 30
+  },
+  {
+   "no": 86,
+   "slug": "at-thariq",
+   "name": "At-Thariq",
+   "arabic": "الطارق",
+   "meaning": {
+    "id": "Yang Datang Pada Malam Hari",
+    "en": "The Morning Star"
+   },
+   "type": "meccan",
+   "ayat": 17,
+   "order": 36,
+   "juz": 30
+  },
+  {
+   "no": 87,
+   "slug": "al-ala",
+   "name": "Al-A'la",
+   "arabic": "الأعلى",
+   "meaning": {
+    "id": "Yang Maha Tinggi",
+    "en": "The Most High"
+   },
+   "type": "meccan",
+   "ayat": 19,
+   "order": 8,
+   "juz": 30
+  },
+  {
+   "no": 88,
+   "slug": "al-ghasyiyah",
+   "name": "Al-Ghasyiyah",
+   "arabic": "الغاشية",
+   "meaning": {
+    "id": "Hari Kiamat Yang Menghilangkan Kesadaran",
+    "en": "The Overwhelming"
+   },
+   "type": "meccan",
+   "ayat": 26,
+   "order": 68,
+   "juz": 30
+  },
+  {
+   "no": 89,
+   "slug": "al-fajr",
+   "name": "Al-Fajr",
+   "arabic": "الفجر",
+   "meaning": {
+    "id": "Fajar",
+    "en": "The Dawn"
+   },
+   "type": "meccan",
+   "ayat": 30,
+   "order": 10,
+   "juz": 30
+  },
+  {
+   "no": 90,
+   "slug": "al-balad",
+   "name": "Al-Balad",
+   "arabic": "البلد",
+   "meaning": {
+    "id": "Negeri",
+    "en": "The City"
+   },
+   "type": "meccan",
+   "ayat": 20,
+   "order": 35,
+   "juz": 30
+  },
+  {
+   "no": 91,
+   "slug": "asy-syams",
+   "name": "Asy-Syams",
+   "arabic": "الشمس",
+   "meaning": {
+    "id": "Matahari",
+    "en": "The Sun"
+   },
+   "type": "meccan",
+   "ayat": 15,
+   "order": 26,
+   "juz": 30
+  },
+  {
+   "no": 92,
+   "slug": "al-lail",
+   "name": "Al-Lail",
+   "arabic": "الليل",
+   "meaning": {
+    "id": "Malam",
+    "en": "The Night"
+   },
+   "type": "meccan",
+   "ayat": 21,
+   "order": 9,
+   "juz": 30
+  },
+  {
+   "no": 93,
+   "slug": "adh-dhuha",
+   "name": "Adh-Dhuha",
+   "arabic": "الضحى",
+   "meaning": {
+    "id": "Duha",
+    "en": "The Morning Hours"
+   },
+   "type": "meccan",
+   "ayat": 11,
+   "order": 11,
+   "juz": 30
+  },
+  {
+   "no": 94,
+   "slug": "al-insyirah",
+   "name": "Al-Insyirah",
+   "arabic": "الشرح",
+   "meaning": {
+    "id": "Pelapangan",
+    "en": "The Consolation"
+   },
+   "type": "meccan",
+   "ayat": 8,
+   "order": 12,
+   "juz": 30
+  },
+  {
+   "no": 95,
+   "slug": "at-tin",
+   "name": "At-Tin",
+   "arabic": "التين",
+   "meaning": {
+    "id": "Buah Tin",
+    "en": "The Fig"
+   },
+   "type": "meccan",
+   "ayat": 8,
+   "order": 28,
+   "juz": 30
+  },
+  {
+   "no": 96,
+   "slug": "al-alaq",
+   "name": "Al-'Alaq",
+   "arabic": "العلق",
+   "meaning": {
+    "id": "Segumpal Darah",
+    "en": "The Clot"
+   },
+   "type": "meccan",
+   "ayat": 19,
+   "order": 1,
+   "juz": 30
+  },
+  {
+   "no": 97,
+   "slug": "al-qadr",
+   "name": "Al-Qadr",
+   "arabic": "القدر",
+   "meaning": {
+    "id": "Kemuliaan",
+    "en": "The Power, Fate"
+   },
+   "type": "meccan",
+   "ayat": 5,
+   "order": 25,
+   "juz": 30
+  },
+  {
+   "no": 98,
+   "slug": "al-bayyinah",
+   "name": "Al-Bayyinah",
+   "arabic": "البينة",
+   "meaning": {
+    "id": "Bukti Nyata",
+    "en": "The Evidence"
+   },
+   "type": "medinan",
+   "ayat": 8,
+   "order": 100,
+   "juz": 30
+  },
+  {
+   "no": 99,
+   "slug": "az-zalzalah",
+   "name": "Az-Zalzalah",
+   "arabic": "الزلزلة",
+   "meaning": {
+    "id": "Guncangan",
+    "en": "The Earthquake"
+   },
+   "type": "medinan",
+   "ayat": 8,
+   "order": 93,
+   "juz": 30
+  },
+  {
+   "no": 100,
+   "slug": "al-adiyat",
+   "name": "Al-'Adiyat",
+   "arabic": "العاديات",
+   "meaning": {
+    "id": "Kuda Perang Yang Berlari Kencang",
+    "en": "The Chargers"
+   },
+   "type": "meccan",
+   "ayat": 11,
+   "order": 14,
+   "juz": 30
+  },
+  {
+   "no": 101,
+   "slug": "al-qariah",
+   "name": "Al-Qari'ah",
+   "arabic": "القارعة",
+   "meaning": {
+    "id": "Hari Kiamat Yang Menggetarkan",
+    "en": "The Calamity"
+   },
+   "type": "meccan",
+   "ayat": 11,
+   "order": 30,
+   "juz": 30
+  },
+  {
+   "no": 102,
+   "slug": "at-takatsur",
+   "name": "At-Takatsur",
+   "arabic": "التكاثر",
+   "meaning": {
+    "id": "Berbangga-Bangga Dalam Memperbanyak Dunia",
+    "en": "Competition"
+   },
+   "type": "meccan",
+   "ayat": 8,
+   "order": 16,
+   "juz": 30
+  },
+  {
+   "no": 103,
+   "slug": "al-ashr",
+   "name": "Al-'Ashr",
+   "arabic": "العصر",
+   "meaning": {
+    "id": "Masa",
+    "en": "The Declining Day, Epoch"
+   },
+   "type": "meccan",
+   "ayat": 3,
+   "order": 13,
+   "juz": 30
+  },
+  {
+   "no": 104,
+   "slug": "al-humazah",
+   "name": "Al-Humazah",
+   "arabic": "الهمزة",
+   "meaning": {
+    "id": "Pengumpat",
+    "en": "The Traducer"
+   },
+   "type": "meccan",
+   "ayat": 9,
+   "order": 32,
+   "juz": 30
+  },
+  {
+   "no": 105,
+   "slug": "al-fil",
+   "name": "Al-Fil",
+   "arabic": "الفيل",
+   "meaning": {
+    "id": "Gajah",
+    "en": "The Elephant"
+   },
+   "type": "meccan",
+   "ayat": 5,
+   "order": 19,
+   "juz": 30
+  },
+  {
+   "no": 106,
+   "slug": "quraisy",
+   "name": "Quraisy",
+   "arabic": "قريش",
+   "meaning": {
+    "id": "Orang Quraisy",
+    "en": "Quraysh"
+   },
+   "type": "meccan",
+   "ayat": 4,
+   "order": 29,
+   "juz": 30
+  },
+  {
+   "no": 107,
+   "slug": "al-maun",
+   "name": "Al-Ma'un",
+   "arabic": "الماعون",
+   "meaning": {
+    "id": "Bantuan",
+    "en": "Almsgiving"
+   },
+   "type": "meccan",
+   "ayat": 7,
+   "order": 17,
+   "juz": 30
+  },
+  {
+   "no": 108,
+   "slug": "al-kautsar",
+   "name": "Al-Kautsar",
+   "arabic": "الكوثر",
+   "meaning": {
+    "id": "Nikmat Yang Banyak",
+    "en": "Abundance"
+   },
+   "type": "meccan",
+   "ayat": 3,
+   "order": 15,
+   "juz": 30
+  },
+  {
+   "no": 109,
+   "slug": "al-kafirun",
+   "name": "Al-Kafirun",
+   "arabic": "الكافرون",
+   "meaning": {
+    "id": "Orang-Orang Kafir",
+    "en": "The Disbelievers"
+   },
+   "type": "meccan",
+   "ayat": 6,
+   "order": 18,
+   "juz": 30
+  },
+  {
+   "no": 110,
+   "slug": "an-nashr",
+   "name": "An-Nashr",
+   "arabic": "النصر",
+   "meaning": {
+    "id": "Pertolongan",
+    "en": "Divine Support"
+   },
+   "type": "medinan",
+   "ayat": 3,
+   "order": 114,
+   "juz": 30
+  },
+  {
+   "no": 111,
+   "slug": "al-lahab",
+   "name": "Al-Lahab",
+   "arabic": "المسد",
+   "meaning": {
+    "id": "Gejolak Api",
+    "en": "The Palm Fibre"
+   },
+   "type": "meccan",
+   "ayat": 5,
+   "order": 6,
+   "juz": 30
+  },
+  {
+   "no": 112,
+   "slug": "al-ikhlash",
+   "name": "Al-Ikhlash",
+   "arabic": "الإخلاص",
+   "meaning": {
+    "id": "Ikhlas",
+    "en": "Sincerity"
+   },
+   "type": "meccan",
+   "ayat": 4,
+   "order": 22,
+   "juz": 30
+  },
+  {
+   "no": 113,
+   "slug": "al-falaq",
+   "name": "Al-Falaq",
+   "arabic": "الفلق",
+   "meaning": {
+    "id": "Fajar",
+    "en": "The Dawn"
+   },
+   "type": "meccan",
+   "ayat": 5,
+   "order": 20,
+   "juz": 30
+  },
+  {
+   "no": 114,
+   "slug": "an-nas",
+   "name": "An-Nas",
+   "arabic": "الناس",
+   "meaning": {
+    "id": "Manusia",
+    "en": "Mankind"
+   },
+   "type": "meccan",
+   "ayat": 6,
+   "order": 21,
+   "juz": 30
+  }
+ ],
+ "juz": [
+  {
+   "juz": 1,
+   "surah": 1,
+   "ayat": 1
+  },
+  {
+   "juz": 2,
+   "surah": 2,
+   "ayat": 142
+  },
+  {
+   "juz": 3,
+   "surah": 2,
+   "ayat": 253
+  },
+  {
+   "juz": 4,
+   "surah": 3,
+   "ayat": 93
+  },
+  {
+   "juz": 5,
+   "surah": 4,
+   "ayat": 24
+  },
+  {
+   "juz": 6,
+   "surah": 4,
+   "ayat": 148
+  },
+  {
+   "juz": 7,
+   "surah": 5,
+   "ayat": 82
+  },
+  {
+   "juz": 8,
+   "surah": 6,
+   "ayat": 111
+  },
+  {
+   "juz": 9,
+   "surah": 7,
+   "ayat": 88
+  },
+  {
+   "juz": 10,
+   "surah": 8,
+   "ayat": 41
+  },
+  {
+   "juz": 11,
+   "surah": 9,
+   "ayat": 93
+  },
+  {
+   "juz": 12,
+   "surah": 11,
+   "ayat": 6
+  },
+  {
+   "juz": 13,
+   "surah": 12,
+   "ayat": 53
+  },
+  {
+   "juz": 14,
+   "surah": 15,
+   "ayat": 1
+  },
+  {
+   "juz": 15,
+   "surah": 17,
+   "ayat": 1
+  },
+  {
+   "juz": 16,
+   "surah": 18,
+   "ayat": 75
+  },
+  {
+   "juz": 17,
+   "surah": 21,
+   "ayat": 1
+  },
+  {
+   "juz": 18,
+   "surah": 23,
+   "ayat": 1
+  },
+  {
+   "juz": 19,
+   "surah": 25,
+   "ayat": 21
+  },
+  {
+   "juz": 20,
+   "surah": 27,
+   "ayat": 56
+  },
+  {
+   "juz": 21,
+   "surah": 29,
+   "ayat": 46
+  },
+  {
+   "juz": 22,
+   "surah": 33,
+   "ayat": 31
+  },
+  {
+   "juz": 23,
+   "surah": 36,
+   "ayat": 28
+  },
+  {
+   "juz": 24,
+   "surah": 39,
+   "ayat": 32
+  },
+  {
+   "juz": 25,
+   "surah": 41,
+   "ayat": 47
+  },
+  {
+   "juz": 26,
+   "surah": 46,
+   "ayat": 1
+  },
+  {
+   "juz": 27,
+   "surah": 51,
+   "ayat": 31
+  },
+  {
+   "juz": 28,
+   "surah": 58,
+   "ayat": 1
+  },
+  {
+   "juz": 29,
+   "surah": 67,
+   "ayat": 1
+  },
+  {
+   "juz": 30,
+   "surah": 78,
+   "ayat": 1
+  }
+ ]
+}

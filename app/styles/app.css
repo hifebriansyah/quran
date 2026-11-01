@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+/* Colours are CSS variables so light, dark and the manual theme switch share one set of classes (bg-bg, text-muted, ...). */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-banner-from: var(--banner-from);
+  --color-banner-to: var(--banner-to);
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-arab: "Amiri Quran", "Scheherazade New", "Noto Naskh Arabic", serif;
+}
+
+:root {
+  --bg: #f6f3ea;
+  --card: #fffdf7;
+  --ink: #1d2433;
+  --muted: #667085;
+  --line: #e4dfd0;
+  --accent: #a9761c;
+  --accent-ink: #ffffff;
+  --banner-from: #1b2a4a;
+  --banner-to: #2d4373;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1420;
+    --card: #171d2c;
+    --ink: #e8e6df;
+    --muted: #9aa3b5;
+    --line: #263049;
+    --accent: #e0b45a;
+    --accent-ink: #1a1405;
+    --banner-from: #0b1020;
+    --banner-to: #16223f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1420;
+  --card: #171d2c;
+  --ink: #e8e6df;
+  --muted: #9aa3b5;
+  --line: #263049;
+  --accent: #e0b45a;
+  --accent-ink: #1a1405;
+  --banner-from: #0b1020;
+  --banner-to: #16223f;
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+[hidden] {
+  display: none !important;
+}
+svg.i {
+  width: 1em;
+  height: 1em;
+  flex: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

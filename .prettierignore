@@ -1,0 +1,8 @@
+build/
+node_modules/
+public/
+tools/
+data/
+.react-router/
+*.md
+package-lock.json
