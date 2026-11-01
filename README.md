@@ -37,7 +37,7 @@ a page carries only its own surah. Pre-rendered addresses: `/id`, `/en`, and `/i
 ## Logo and icons
 
 `logo.png` (the logo on a transparent background) is the source. `python3 tools/build_assets.py` makes everything in `public/assets/` from it:
-favicons, app icons, `og.jpg` (the default link-preview picture, just the logo) and `site.webmanifest`.
+favicons, app icons (two kinds of manifest icons: the white logo on a transparent square, `any`, which the Android splash screen uses so it has no tile edge, and the white logo on a teal square, `maskable`, for the home screen icon; the iPhone icon is a teal tile), `og.jpg` (the default link-preview picture, just the logo) and `site.webmanifest`.
 `python3 tools/trace_logo.py` (needs `pip install potracer`) traces the logo into `public/assets/logo.svg` and `app/lib/logo.json`: the vector
 used in the header, in the verse page's canvas and in the pictures Chrome draws, sharp at any size. The logo stands at the left of the header,
 before the search field, and links to the surah list.

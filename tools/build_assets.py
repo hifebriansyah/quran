@@ -5,8 +5,10 @@ Usage:  python3 tools/build_assets.py [path/to/logo.png]
 Needs:  Pillow
 
 Writes: logo.png (trimmed, 512 px tall, transparent; the header uses logo.svg, see tools/trace_logo.py), favicon.ico, favicon-32.png, apple-touch-icon.png (180),
-        icon-192.png, icon-512.png (white logo on the brand colour, with room around it for round/maskable icons: Android builds the
-        splash screen of the installed app from this icon and the manifest's background colour, so it is all teal with a white logo),
+        icon-192.png, icon-512.png (purpose "any": the white logo alone on a transparent square. Android builds the splash screen of the
+        installed app from this icon and the manifest's background colour, so it is all teal with a white logo and no tile edge),
+        icon-maskable-192.png, icon-maskable-512.png (purpose "maskable": the white logo on a full teal square; the home screen icon),
+        apple-touch-icon.png (iOS needs it opaque: the white logo on a teal tile),
         splash/<w>x<h>.png (the same for iPhones, which need their own splash images) and app/lib/splash.json (their sizes, for the page head),
         og.jpg (1200 x 630: the default link-preview picture, a white logo on the brand colour), site.webmanifest
 """
@@ -48,6 +50,15 @@ def white(logo: Image.Image) -> Image.Image:
     out = Image.new("RGBA", logo.size, (255, 255, 255, 0))
     out.putalpha(logo.getchannel("A"))
     return out
+
+
+def transparent_icon(logo: Image.Image, size: int, share: float) -> Image.Image:
+    """The white logo alone on a transparent square (no tile). Android draws it straight onto the splash screen's background colour, so there
+    is no tile edge on the splash; abimisme's icons work the same way."""
+    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    mark = fitted(white(logo), round(size * share), round(size * share))
+    canvas.paste(mark, ((size - mark.width) // 2, (size - mark.height) // 2), mark)
+    return canvas
 
 
 def on_brand(logo: Image.Image, width: int, height: int, share: float) -> Image.Image:
@@ -93,8 +104,13 @@ def main():
 
     # app icons: opaque (iOS needs it), the logo at 62% so round and maskable icons do not cut it
     on_brand(logo, 180, 180, 0.56).save(OUT / "apple-touch-icon.png", optimize=True)
-    on_brand(logo, 192, 192, 0.56).save(OUT / "icon-192.png", optimize=True)
-    on_brand(logo, 512, 512, 0.56).save(OUT / "icon-512.png", optimize=True)
+    # the manifest icons (and so the Android splash screen): the white logo on a transparent square, like abimisme's icons
+    transparent_icon(logo, 192, 0.9).save(OUT / "icon-192.png", optimize=True)
+    transparent_icon(logo, 512, 0.9).save(OUT / "icon-512.png", optimize=True)
+    # the launcher (home screen) icon: Android masks it to the phone's icon shape, so it is a full teal square with the white logo in the
+    # middle 56% (inside the safe zone). Declared as "maskable", so it is used for the home screen and not for the splash.
+    on_brand(logo, 192, 192, 0.56).save(OUT / "icon-maskable-192.png", optimize=True)
+    on_brand(logo, 512, 512, 0.56).save(OUT / "icon-maskable-512.png", optimize=True)
 
     # splash screens for iPhones: all brand colour, a white logo in the middle (portrait; iOS turns them for landscape)
     splash_dir = OUT / "splash"
@@ -125,8 +141,8 @@ def main():
                 "icons": [
                     {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
                     {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
-                    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable"},
-                    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"},
+                    {"src": "icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable"},
+                    {"src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"},
                 ],
             },
             indent=2,
