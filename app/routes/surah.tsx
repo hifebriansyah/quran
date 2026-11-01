@@ -10,7 +10,7 @@ import { pageMeta } from "~/lib/head";
 import { isLang, t } from "~/lib/i18n";
 import { readSurah } from "~/lib/quran.server";
 import { useShare } from "~/lib/share";
-import { ayatPath, surahBySlug, surahPath } from "~/lib/surahs";
+import { ayatPath, surahBySlug } from "~/lib/surahs";
 import NotFound from "./not-found";
 
 // Runs when the site is built (and in `npm run dev`): the page carries only its own surah.
@@ -77,7 +77,7 @@ export default function SurahPage({ loaderData }: Route.ComponentProps) {
             playing={playing === v.n}
             onPlay={() => toggle(v.n)}
             onCopy={() => copy(`${v.arabic}\n${v.text}\n— ${surah.name}: ${v.n}`, s.copied)}
-            onShare={() => share(surahPath(lang, surah, v.n), `${surah.name}: ${v.n}`)}
+            onShare={() => share(ayatPath(lang, surah, v.n), `${surah.name}: ${v.n}`)}
           />
         ))}
       </main>
