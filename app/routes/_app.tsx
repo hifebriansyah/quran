@@ -18,8 +18,8 @@ export default function AppLayout() {
   // (the server sees "/id/" where the browser sees "/id", so the trailing slash is dropped)
   const rest = isLang(param) ? pathname.replace(/^\/[^/]+/, "").replace(/\/$/, "") : "";
   const isHome = isLang(param) && rest === "";
-  // a verse's picture page (/id/al-alaq/1) has the home page's header: the floating pill over a teal banner
-  const hasBanner = isHome || (isLang(param) && /^\/[^/]+\/\d+$/.test(rest));
+  // a verse's picture page (/id/al-alaq/1) and the shalat page (/id/shalat) have the home page's header: the floating pill over a teal banner
+  const hasBanner = isHome || rest === "/shalat" || (isLang(param) && /^\/[^/]+\/\d+$/.test(rest));
   const alternates = { id: `/id${rest}`, en: `/en${rest}` };
   const ref = parseRef(query);
   return (
@@ -43,7 +43,7 @@ export default function AppLayout() {
       {/* a banner runs under the header; every other page starts below it */}
       {!hasBanner && <div style={{ height: APP_BAR_HEIGHT }} aria-hidden="true" />}
       <Outlet context={{ query } satisfies AppContext} />
-      <footer className="mx-auto max-w-5xl px-4 py-10 text-center text-xs text-muted">{t(lang).credit}</footer>
+      <footer className="mx-auto max-w-5xl px-4 py-10 text-center text-xs text-muted">{rest === "/shalat" ? t(lang).shalat.credit : t(lang).credit}</footer>
     </ToastProvider>
   );
 }

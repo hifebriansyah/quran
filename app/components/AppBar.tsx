@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { LANGS, t, type Lang } from "~/lib/i18n";
+import { Icon } from "./Icon";
 import { SearchBox } from "./SearchBox";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -37,6 +38,7 @@ export function AppBar({ lang, alternates, query, onQueryChange, onSearchSubmit,
   }, []);
   // the home page starts with the floating pill and turns into the bar once it is scrolled; every other page has the bar throughout
   const bar = !pill || scrolled;
+  const isShalat = alternates[lang]?.endsWith("/shalat");
 
   return (
     <header className="sticky top-0 z-30 h-0">
@@ -64,6 +66,25 @@ export function AppBar({ lang, alternates, query, onQueryChange, onSearchSubmit,
               label={s.searchLabel}
               className="min-w-0 flex-1"
             />
+            <nav aria-label={s.shalat.nav} className="flex h-9 flex-none items-center rounded-full bg-ink/10 p-1 text-base">
+              {(
+                [
+                  { to: `/${lang}`, icon: "book", label: s.home, active: !isShalat },
+                  { to: `/${lang}/shalat`, icon: "clock", label: s.shalat.nav, active: isShalat },
+                ] as const
+              ).map((item) => (
+                <Link
+                  key={item.icon}
+                  to={item.to}
+                  aria-label={item.label}
+                  title={item.label}
+                  aria-current={item.active ? "page" : undefined}
+                  className={`grid h-full w-9 place-items-center rounded-full ${item.active ? "bg-accent text-accent-ink" : "text-muted hover:text-ink"}`}
+                >
+                  <Icon name={item.icon} />
+                </Link>
+              ))}
+            </nav>
             <nav
               aria-label={s.language}
               className="flex h-9 items-center rounded-full bg-ink/10 p-1 text-sm leading-5 font-semibold"

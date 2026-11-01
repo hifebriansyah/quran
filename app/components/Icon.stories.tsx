@@ -12,6 +12,9 @@ const NAMES = [
   "chevronUp",
   "chevronDown",
   "grid",
+  "clock",
+  "mapPin",
+  "refresh",
 ] as const;
 
 const meta = { title: "Components/Icon", component: Icon } satisfies Meta<typeof Icon>;
