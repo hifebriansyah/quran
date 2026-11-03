@@ -6,8 +6,8 @@
     "node": ">=24.0.0"
   },
   "scripts": {
-    "dev": "node scripts/shalat-data.ts && react-router dev",
-    "build": "node scripts/shalat-data.ts && rm -rf build && export BUILD_ID=${BUILD_ID:-$(date +%s)} && react-router build && node scripts/postbuild.ts",
+    "dev": "react-router dev",
+    "build": "rm -rf build && export BUILD_ID=${BUILD_ID:-$(date +%s)} && react-router build && node scripts/postbuild.ts",
     "build:local": "BASE_PATH=/for-fun/quran/ npm run build && npm run build-storybook",
     "preview": "vite preview --outDir build/client",
     "typecheck": "react-router typegen && tsc",

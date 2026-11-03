@@ -1,3 +1,5 @@
+import { IMAGE_BASE } from "~/lib/images";
+
 // Monthly prayer times (source: Bimas Islam Kemenag RI via equran.id), scraped to data/shalat and served as static files.
 
 /** Years covered by the bundled data (the source publishes 2026-2028). */
@@ -36,9 +38,8 @@ type Wilayah = { name: string; slug: string; kabkota: { name: string; slug: stri
 
 let wilayahPromise: Promise<Wilayah> | null = null;
 
-// The files come from VITE_SHALAT_BASE (the R2 bucket, sent by tools/upload_shalat.py), else from public/shalat, which
-// scripts/shalat-data.ts generates from data/shalat.
-const SHALAT_BASE = (import.meta.env.VITE_SHALAT_BASE ?? `${import.meta.env.BASE_URL}shalat`).replace(/\/$/, "");
+// The files are in the R2 bucket, next to the pictures (sent by tools/upload_shalat.py); VITE_SHALAT_BASE overrides the address.
+const SHALAT_BASE = (import.meta.env.VITE_SHALAT_BASE ?? `${IMAGE_BASE}/shalat_schedule`).replace(/\/$/, "");
 const dataUrl = (path: string) => `${SHALAT_BASE}/${path}`;
 
 async function getJson<T>(path: string, signal?: AbortSignal): Promise<T> {

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Upload the prayer times in data/shalat/ (made by tools/scrape_shalat.py) to the R2 bucket quran-images, in the layout the shalat page reads
-(the same files scripts/shalat-data.ts writes to public/shalat/):
+(app/lib/shalat.ts):
 
     <prefix>wilayah.json                       provinces and their regencies/cities
     <prefix><provinsi>/<kabkota>/<year>.json   { "<month>": [day, ...] }
@@ -12,7 +12,7 @@ Usage:
     python3 tools/upload_shalat.py --only dki-jakarta only keys (after the prefix) that start with this
     options: --env <file>  --bucket quran-images  --src data/shalat  --prefix shalat_schedule/ (the folder in the bucket)  --jobs 8  --force (upload again)
 
-Then build the site with VITE_SHALAT_BASE=https://quran-img.situs.id/shalat_schedule (see .env.example) so the page reads from the bucket.
+The page reads them from https://quran-img.situs.id/shalat_schedule by default (VITE_SHALAT_BASE, see .env.example).
 The bucket needs a CORS rule allowing GET from the site's origin, because the page uses fetch().
 Parallel and resumable like upload_voice.py: <src>/.uploaded.json records each key with the size and time of the source file it came from,
 so a second run only sends what is new or changed. Delete that file, or use --force, to send everything again.
@@ -95,7 +95,7 @@ def put(account: str, token: str, bucket: str, key: str, data: bytes, content_ty
 
 
 def jobs_for(src: Path, prefix: str, only: str):
-    """Yield (key, source file, stamp, build) where build() returns the bytes to upload. Same files as scripts/shalat-data.ts."""
+    """Yield (key, stamp, build) where build() returns the bytes to upload."""
     wilayah_file = src / "wilayah.json"
     wilayah = json.loads(wilayah_file.read_text(encoding="utf-8"))
     index = [{"name": p["name"], "slug": p["slug"], "kabkota": wilayah["kabkota"].get(p["name"], [])} for p in wilayah["provinsi"]]
