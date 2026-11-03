@@ -1,6 +1,7 @@
-// Monthly prayer times from the equran.id v2 Shalat API (https://equran.id/apidev/shalat, source: Bimas Islam Kemenag RI).
+// Monthly prayer times (source: Bimas Islam Kemenag RI via equran.id), scraped to data/shalat and served as static files.
 
-export const SHALAT_API_BASE = "https://equran.id/api/v2/shalat";
+/** Years covered by the bundled data (the source publishes 2026-2028). */
+export const SHALAT_YEARS = [2026, 2027, 2028];
 
 export const DEFAULT_PROVINSI = "DKI Jakarta";
 export const DEFAULT_KABKOTA = "Kota Jakarta";
@@ -31,52 +32,63 @@ export type JadwalBulanan = {
   jadwal: JadwalHarian[];
 };
 
-type ApiResponse<T> = {
-  code: number;
-  message: string;
-  data: T;
-};
+type Wilayah = { name: string; slug: string; kabkota: { name: string; slug: string }[] }[];
 
-/** Fetch all available Indonesian provinces from GET /api/v2/shalat/provinsi. */
-export async function fetchProvinsi(signal?: AbortSignal): Promise<string[]> {
-  const res = await fetch(`${SHALAT_API_BASE}/provinsi`, { signal });
+let wilayahPromise: Promise<Wilayah> | null = null;
+
+// The files come from VITE_SHALAT_BASE (the R2 bucket, sent by tools/upload_shalat.py), else from public/shalat, which
+// scripts/shalat-data.ts generates from data/shalat.
+const SHALAT_BASE = (import.meta.env.VITE_SHALAT_BASE ?? `${import.meta.env.BASE_URL}shalat`).replace(/\/$/, "");
+const dataUrl = (path: string) => `${SHALAT_BASE}/${path}`;
+
+async function getJson<T>(path: string, signal?: AbortSignal): Promise<T> {
+  const res = await fetch(dataUrl(path), { signal });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const json = (await res.json()) as ApiResponse<string[]>;
-  if (!Array.isArray(json.data)) throw new Error(json.message || "Invalid province data");
-  return json.data;
+  return (await res.json()) as T;
 }
 
-/** Fetch regencies/cities for a given province from POST /api/v2/shalat/kabkota. */
-export async function fetchKabKota(provinsi: string, signal?: AbortSignal): Promise<string[]> {
-  const res = await fetch(`${SHALAT_API_BASE}/kabkota`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ provinsi }),
-    signal,
+function loadWilayah(): Promise<Wilayah> {
+  wilayahPromise ??= getJson<Wilayah>("wilayah.json").catch((err: unknown) => {
+    wilayahPromise = null;
+    throw err;
   });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const json = (await res.json()) as ApiResponse<string[]>;
-  if (!Array.isArray(json.data)) throw new Error(json.message || "Invalid kabkota data");
-  return json.data;
+  return wilayahPromise;
 }
 
-/** Fetch monthly prayer schedule from POST /api/v2/shalat. */
+/** All Indonesian provinces in the bundled prayer-time data. */
+export async function fetchProvinsi(): Promise<string[]> {
+  return (await loadWilayah()).map((p) => p.name);
+}
+
+/** Regencies/cities of a province. */
+export async function fetchKabKota(provinsi: string): Promise<string[]> {
+  const prov = (await loadWilayah()).find((p) => p.name === provinsi);
+  if (!prov) throw new Error("Unknown province");
+  return prov.kabkota.map((k) => k.name);
+}
+
+const yearCache = new Map<string, Promise<Record<string, JadwalHarian[]>>>();
+
+/** Monthly prayer schedule, read from the bundled per-city year file. */
 export async function fetchJadwalShalat(
   params: { provinsi: string; kabkota: string; bulan: number; tahun: number },
   signal?: AbortSignal,
 ): Promise<JadwalBulanan> {
-  const res = await fetch(SHALAT_API_BASE, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(params),
-    signal,
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const json = (await res.json()) as ApiResponse<JadwalBulanan>;
-  if (!json.data || !Array.isArray(json.data.jadwal)) {
-    throw new Error(json.message || "Invalid schedule data");
+  const prov = (await loadWilayah()).find((p) => p.name === params.provinsi);
+  const city = prov?.kabkota.find((k) => k.name === params.kabkota);
+  if (!prov || !city) throw new Error("Unknown location");
+  const path = `${prov.slug}/${city.slug}/${params.tahun}.json`;
+  let year = yearCache.get(path);
+  if (!year) {
+    year = getJson<Record<string, JadwalHarian[]>>(path); // shared between callers, so not tied to one signal
+    yearCache.set(path, year);
+    year.catch(() => yearCache.delete(path));
   }
-  return json.data;
+  const months = await year;
+  signal?.throwIfAborted();
+  const jadwal = months[String(params.bulan)];
+  if (!Array.isArray(jadwal)) throw new Error("No schedule for this month");
+  return { provinsi: params.provinsi, kabkota: params.kabkota, bulan: params.bulan, tahun: params.tahun, jadwal };
 }
 
 const norm = (s: string) =>

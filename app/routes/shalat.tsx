@@ -12,6 +12,7 @@ import {
   fetchJadwalShalat,
   fetchKabKota,
   fetchProvinsi,
+  SHALAT_YEARS,
   findJakartaKabKota,
   formatCountdown,
   getNextPrayer,
@@ -34,6 +35,8 @@ export const meta = ({ params }: { params: Record<string, string | undefined> })
 const selectClass =
   "w-full cursor-pointer appearance-none rounded-xl border border-line bg-bg py-2.5 pr-9 pl-3.5 text-sm font-medium text-ink focus:border-accent focus:outline-none disabled:opacity-60";
 
+const clampYear = (y: number) => Math.min(Math.max(y, SHALAT_YEARS[0]), SHALAT_YEARS[SHALAT_YEARS.length - 1]);
+
 export default function ShalatPage() {
   const { lang } = useParams();
   const nowInit = useMemo(() => new Date(), []);
@@ -44,7 +47,7 @@ export default function ShalatPage() {
   const [provinsi, setProvinsi] = useState<string>(DEFAULT_PROVINSI);
   const [kabkota, setKabkota] = useState<string>(DEFAULT_KABKOTA);
   const [bulan, setBulan] = useState<number>(nowInit.getMonth() + 1);
-  const [tahun, setTahun] = useState<number>(nowInit.getFullYear());
+  const [tahun, setTahun] = useState<number>(clampYear(nowInit.getFullYear()));
 
   const [locating, setLocating] = useState<boolean>(true);
   const [loading, setLoading] = useState<boolean>(true);
@@ -182,7 +185,7 @@ export default function ShalatPage() {
   const currentYear = now.getFullYear();
   const currentMonth = now.getMonth() + 1;
   const currentDay = now.getDate();
-  const years = [currentYear - 1, currentYear, currentYear + 1, currentYear + 2];
+  const years = SHALAT_YEARS;
 
   const nextPrayer = todaySchedule ? getNextPrayer(todaySchedule, now) : null;
   // the current time is the prayer just before the next one (Isya once the day's last time has passed; none before Imsak)
